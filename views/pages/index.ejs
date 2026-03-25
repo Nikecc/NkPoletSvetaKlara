@@ -570,10 +570,10 @@ const players=[
 {name:"Rudi Hoić",pos:"Napadač",num:15,img:IMG+"RudiHoic.png",nat:"Hrvatska",apps:4,goals:0,mins:203,yc:0,rc:0},
 {name:"Stipe Jurilj",pos:"Napadač",num:17,img:IMG+"StipeJurilj.png",nat:"Hrvatska",apps:19,goals:9,mins:1329,yc:4,rc:0},
 ];
-let aP=0;
+let aP=0,firstLoad=true;
 function buildT(){document.getElementById('pThumbs').innerHTML=players.map((p,i)=>`<div class="pt ${i===0?'active':''}" onclick="selP(${i})"><div class="pt-c"><img src="${p.img}" alt="${p.name}"></div><div class="pt-n">${p.name.split(' ').pop()}</div></div>`).join('')}
 function selP(i){aP=i;const p=players[i];document.querySelectorAll('.pt').forEach((t,j)=>t.classList.toggle('active',j===i));
-const th=document.querySelectorAll('.pt')[i];if(th)th.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+if(!firstLoad){const th=document.querySelectorAll('.pt')[i];if(th)th.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});}firstLoad=false;
 const d=document.getElementById('pDetail');
 d.innerHTML=`<div class="pd-vis"><div class="pd-glow"></div><img src="${p.img}" alt="${p.name}"><div class="pd-bgn">${p.num}</div></div>
 <div class="pd-info"><div class="pd-num">${p.num}</div><div class="pd-pos">${p.pos}</div>
