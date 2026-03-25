@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NK Polet 1-1 NK Zelengaj 1948 | NK Polet Sveta Klara</title>
+    <link rel="icon" type="image/png" href="/Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #1B2A4A;
+            --red: #D42428;
+            --red-l: #E84E52;
+            --dark: #0F1520;
+            --light: #F7F7F8;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        /* Reading Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--red), var(--red-l));
+            width: 0%;
+            z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        /* Back Link */
+        .back-link {
+            position: fixed;
+            top: 82px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(15, 21, 32, 0.7);
+            backdrop-filter: blur(10px);
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-link:hover {
+            background: var(--red);
+            transform: translateX(-3px);
+        }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Hero */
+        .article-hero {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            min-height: 450px;
+            overflow: hidden;
+        }
+
+        .article-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(15, 21, 32, 0.3) 0%,
+                rgba(15, 21, 32, 0.5) 50%,
+                rgba(15, 21, 32, 0.95) 100%
+            );
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 60px 40px 50px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .category-badge {
+            display: inline-block;
+            background: var(--red);
+            color: var(--white);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 3px;
+            margin-bottom: 16px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: rgba(255,255,255,0.7);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            margin-bottom: 16px;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: var(--white);
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .hero-title .score {
+            color: var(--red-l);
+        }
+
+        /* Article Body */
+        .article-body {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+            position: relative;
+        }
+
+        .article-body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--red);
+            border-radius: 2px;
+        }
+
+        .article-body p {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 24px;
+            text-align: justify;
+        }
+
+        .article-body p:first-of-type::first-letter {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            float: left;
+            line-height: 1;
+            margin-right: 10px;
+            margin-top: 4px;
+            color: var(--red);
+        }
+
+        /* Match Stats Box */
+        .match-stats {
+            background: var(--dark);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 40px 0;
+            color: var(--white);
+        }
+
+        .match-stats-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .match-stats-header h3 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--red-l);
+        }
+
+        .match-score-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .team-name {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+        }
+
+        .score-big {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: var(--red-l);
+            background: rgba(212, 36, 40, 0.15);
+            padding: 8px 20px;
+            border-radius: 8px;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        .stat-row:last-child { border-bottom: none; }
+        .stat-label { color: rgba(255,255,255,0.6); text-align: center; flex: 1; }
+        .stat-value { flex: 0.5; }
+        .stat-value:first-child { text-align: left; }
+        .stat-value:last-child { text-align: right; }
+
+        /* Decorative Elements */
+        .decoration-line {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--red), transparent);
+            margin: 40px 0;
+        }
+
+        .decoration-dots {
+            text-align: center;
+            margin: 30px 0;
+            color: var(--red);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            letter-spacing: 12px;
+        }
+
+        /* Share Section */
+        .share-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 30px 0;
+            border-top: 2px solid var(--light);
+            margin-top: 40px;
+        }
+
+        .share-section span {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .share-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            background: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: #666;
+        }
+
+        .share-btn:hover {
+            border-color: var(--red);
+            background: var(--red);
+            color: var(--white);
+        }
+
+        /* Footer */
+        .site-footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.6);
+            padding: 60px 24px 30px;
+        }
+
+        .footer-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer-brand img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .footer-brand-text h4 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            color: var(--white);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .footer-brand-text p {
+            font-size: 0.8rem;
+        }
+
+        .footer-info p {
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+        }
+
+        .footer-bottom {
+            max-width: 900px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Ball decoration */
+        .ball-decoration {
+            position: relative;
+        }
+
+        .ball-decoration::after {
+            content: '\26BD';
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.03;
+            right: -60px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        /* Nav */
+        .nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 48px;transition:all .4s;background:rgba(11,15,24,.94);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06)}
+        .ni{display:flex;align-items:center;justify-content:space-between;width:100%}
+        .nav-left{display:flex;align-items:center;gap:40px}
+        .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+        .nav-crest{width:52px;height:52px;flex-shrink:0}.nav-crest img{width:100%;height:100%;object-fit:contain}
+        .nav-name{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:#fff;letter-spacing:.1em}
+        .nav-links{display:flex;gap:28px;list-style:none}
+        .nav-links a{font-size:.78rem;font-weight:600;color:rgba(113,125,143,.9);text-transform:uppercase;letter-spacing:.08em;transition:color .3s;text-decoration:none;font-family:'Inter',sans-serif}
+        .nav-links a:hover{color:#fff}
+        .nav-right{display:flex;align-items:center;gap:16px}
+        .nav-social a{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(113,125,143,.9);transition:all .3s;text-decoration:none}
+        .nav-social a:hover{color:#fff;background:rgba(255,255,255,.06)}
+        .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:5px;z-index:1001}
+        .nav-toggle span{width:20px;height:1.5px;background:#fff;transition:all .3s;border-radius:1px}
+        .nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}
+        .nav-toggle.active span:nth-child(2){opacity:0}
+        .nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+        @media(max-width:1024px){
+        .nav{padding:0 20px}
+        .nav-toggle{display:flex;z-index:10001}
+        .nav-links{position:fixed;inset:0;background:rgba(11,15,24,.97);flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .4s;z-index:10000}
+        .nav-links.open{opacity:1;pointer-events:all}
+        .nav-links a{font-size:1.3rem}
+        }
+
+        @media (max-width: 768px) {
+            .hero-content { padding: 40px 20px 30px; }
+            .article-body { padding: 40px 20px 60px; }
+            .back-link { top: 82px; left: 12px; padding: 8px 14px; font-size: 0.8rem; }
+            .match-score-display { flex-direction: column; gap: 12px; }
+            .footer-inner { flex-direction: column; gap: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <%- include('../partials/nav', {currentPage: currentPage}) %>
+
+    <a href="/vijesti" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Vijesti
+    </a>
+
+    <article>
+        <div class="article-hero">
+            <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=1920&q=85" alt="NK Polet vs NK Zelengaj 1948">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="category-badge">Utakmica</div>
+                <div class="article-meta">
+                    <span>21. ožujka 2026.</span>
+                    <span>&bull;</span>
+                    <span>5 min čitanja</span>
+                </div>
+                <h1 class="hero-title">NK Polet <span class="score">1 : 1</span> NK Zelengaj 1948</h1>
+            </div>
+        </div>
+
+        <div class="article-body ball-decoration">
+            <p>Uzbudljiva utakmica na Sportskom centru Polet završila je pravednim remijem 1-1 između domaćeg NK Poleta i gostujućeg NK Zelengaja 1948. Od samog početka utakmice vidjelo se da obje ekipe žele pobjedu, a intenzitet na terenu bio je na visokoj razini. Domaći su krenuli agresivno i već u prvim minutama stvorili nekoliko opasnih situacija pred golom gostiju, no preciznost u završnici nedostajala je našim napadačima.</p>
+
+            <p>Polet je poveo u 28. minuti nakon prekrasne akcije preko desne strane. Brzi prodor završio je centaršutom koji je pronašao slobodnog igrača u kaznenom prostoru, a ovaj je preciznim udarcem svladao gostujućeg vratara. Ostatak prvog poluvremena protekao je u kontroliranoj igri domaćih, koji su čuvali prednost i pokušavali zabiti drugi pogodak za mirnu završnicu.</p>
+
+            <div class="match-stats">
+                <div class="match-stats-header">
+                    <h3>Statistika utakmice</h3>
+                </div>
+                <div class="match-score-display">
+                    <span class="team-name">NK Polet</span>
+                    <span class="score-big">1 : 1</span>
+                    <span class="team-name">NK Zelengaj</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-value">12</span>
+                    <span class="stat-label">Udarci</span>
+                    <span class="stat-value">10</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-value">5</span>
+                    <span class="stat-label">Udarci u okvir</span>
+                    <span class="stat-value">4</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-value">54%</span>
+                    <span class="stat-label">Posjed</span>
+                    <span class="stat-value">46%</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-value">6</span>
+                    <span class="stat-label">Korneri</span>
+                    <span class="stat-value">4</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-value">2</span>
+                    <span class="stat-label">Žuti kartoni</span>
+                    <span class="stat-value">3</span>
+                </div>
+            </div>
+
+            <p>Drugo poluvrijeme donijelo je preokret u igri. Zelengaj je pojačao pritisak i počeo dominirati na sredini terena. U 67. minuti gosti su iskoristili pogrešku u našoj obrani, brzo odigrali kontru i nakon preciznog pasa u dubinu postigli zasluženi pogodak za izjednačenje. Naš vratar je bio nemoćan pred snažnim udarcem s ruba kaznenog prostora.</p>
+
+            <p>U završnici utakmice obje su ekipe imale prilike za pobjedu. Polet je u 82. minuti pogodio stativu nakon slobodnog udarca, dok su gosti u sudačkoj nadoknadi zaprijetili opasnim kontranapadom koji je obrana uspješno zaustavila. Na kraju, bod za svakoga može se smatrati pravednim rezultatom s obzirom na prikazanu igru obje momčadi. Polet nastavlja sa solidnim nizom rezultata i već se okreće sljedećim izazovima u prvenstvu.</p>
+
+            <div class="decoration-dots">&middot; &middot; &middot;</div>
+
+            <div class="share-section">
+                <span>Podijeli</span>
+                <button class="share-btn" title="Facebook">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                </button>
+                <button class="share-btn" title="Twitter">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+                </button>
+            </div>
+        </div>
+    </article>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="/Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png" alt="NK Polet">
+                <div class="footer-brand-text">
+                    <h4>NK Polet Sveta Klara</h4>
+                    <p>Osnovan 1948. godine</p>
+                </div>
+            </div>
+            <div class="footer-info">
+                <p>Sportski centar Polet</p>
+                <p>Sveta Klara, Zagreb</p>
+                <p>info@nkpolet.hr</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 NK Polet Sveta Klara. Sva prava pridržana.</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+    </script>
+    <%- include('../partials/nav-js') %>
+</body>
+</html>

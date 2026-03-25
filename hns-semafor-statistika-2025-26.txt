@@ -1,0 +1,592 @@
+================================================================================
+NK POLET SVETA KLARA (Club ID: 605) - HNS SEMAFOR
+SEZONA 2025/26 - SVE KATEGORIJE
+Izvor: https://semafor.hns.family/klubovi/605/nk-polet-sk/
+Datum izvlacenja: 24.03.2026.
+================================================================================
+
+Adresa: M. Mrkšina 67a, Zagreb, 10020 Sveta Klara
+Stadion: Sveta Klara
+
+Kategorije (uzrasti) registrirani u sezoni 2025/26:
+  - Seniors (Seniori)
+  - Juniors (Juniori)
+  - Cadets (Kadeti)
+  - Pioneers (Pioniri)
+  - Young pioneers (Mladi pioniri)
+  - Beginners (Limaci)
+  - Children 2 (Zagici)
+
+================================================================================
+1. SENIORI - 4. Nogometna liga Sredista Zagreb skupina A 25/26
+   CID: 100606779
+   (Takoder igraju: KUP ZNS-a - SENIORI 25/26, CID: 102977288)
+================================================================================
+
+--- LJESTVICA ---
+Poz | Klub                      | UT | PB | NR | PO | GD  | GP  | GR   | BOD
+----|---------------------------|----|----|----|----|-----|-----|------|----
+  1 | NK Zagreb City            | 19 | 15 |  2 |  2 |  43 |  14 |  +29 |  47
+  2 | NK Mladost Zabok          | 19 | 14 |  3 |  2 |  48 |  22 |  +26 |  45
+  3 | NK Rudar (DZ)             | 19 | 10 |  3 |  6 |  35 |  22 |  +13 |  33
+  4 | NK Polet (SK)             | 19 | 10 |  3 |  6 |  43 |  35 |   +8 |  33
+  5 | NK Golubovec              | 18 |  8 |  6 |  4 |  31 |  24 |   +7 |  30
+  6 | NK Zelengaj 1948          | 19 |  8 |  6 |  5 |  27 |  21 |   +6 |  30
+  7 | NK Klanjec                | 19 |  8 |  2 |  9 |  32 |  30 |   +2 |  26
+  8 | NK Sesvetski Kraljevec    | 19 |  7 |  5 |  7 |  32 |  31 |   +1 |  26
+  9 | NK Jedinstvo (SKZ)        | 19 |  7 |  5 |  7 |  31 |  33 |   -2 |  26
+ 10 | NK Bedekovcina            | 19 |  6 |  7 |  6 |  27 |  26 |   +1 |  25
+ 11 | NK Spansko                | 18 |  7 |  3 |  8 |  23 |  21 |   +2 |  24
+ 12 | NK Vojnic 95              | 18 |  5 |  6 |  7 |  23 |  23 |    0 |  21
+ 13 | NK Ilovac                 | 19 |  5 |  4 | 10 |  20 |  36 |  -16 |  19
+ 14 | NK Odra                   | 18 |  4 |  4 | 10 |  17 |  30 |  -13 |  16
+ 15 | NK Zagreb                 | 19 |  3 |  4 | 12 |  16 |  31 |  -15 |  13
+ 16 | NK Ogulin                 | 19 |  0 |  3 | 16 |  12 |  61 |  -49 |   3
+
+--- IGRACI NK POLET (SK) - SENIORI ---
+Br  | Ime i prezime         | Pozicija   | Nast | Gol | Min   | ZK | CK
+----|----------------------|------------|------|-----|-------|----|----|
+  1 | Patrik Prsa          | Golman     |   19 |   0 | 1.710 |  1 |  0
+ 12 | Luka Malesevic       | Golman     |    0 |   0 |     0 |  0 |  0
+  2 | Marin Krizic         | Branič     |   17 |   0 | 1.496 |  2 |  0
+  3 | Filip Vojnovic       | Branič     |   19 |   0 | 1.657 |  4 |  0
+  4 | Noa Poljak           | Branič     |    4 |   1 |   195 |  0 |  0
+  5 | Mihael Peric         | Branič     |   16 |   0 | 1.290 |  2 |  0
+  6 | Ivan Bogdanovic      | Veznjak    |   14 |   2 | 1.146 |  3 |  0
+  6 | Matej Nekic          | Veznjak    |    9 |   0 |   765 |  1 |  0
+  7 | Renato Dolic         | Veznjak    |    9 |   1 |   712 |  3 |  0
+  7 | Fran Salajec         | Veznjak    |    7 |   1 |   101 |  1 |  0
+  8 | Luka Gorse           | Veznjak    |   14 |   1 | 1.156 |  5 |  0
+  8 | Gabriel Blazevic     | Veznjak    |    2 |   0 |    22 |  0 |  0
+  8 | Tomislav Maric       | Veznjak    |    1 |   0 |     8 |  0 |  0
+  9 | Roberto Badanjak     | Napadac    |   17 |   7 | 1.466 |  4 |  0
+ 10 | Tomislav Gotovac     | Napadac    |   18 |  10 | 1.361 |  5 |  0
+ 11 | Ivan Telebar         | Napadac    |   18 |   2 | 1.142 |  0 |  0
+ 13 | Ivan Juric           | Veznjak    |   19 |   0 | 1.028 |  1 |  0
+ 14 | Ivan Hercigonja      | Napadac    |   16 |   4 |   505 |  0 |  0
+ 14 | Filip Soplanda       | Napadac    |    3 |   1 |    22 |  0 |  0
+ 15 | Rudi Hoic            | Napadac    |    4 |   0 |   203 |  0 |  0
+ 16 | Marko Pavicic        | Veznjak    |   16 |   0 |   938 |  1 |  0
+ 17 | Stipe Jurilj         | Napadac    |   19 |   9 | 1.329 |  4 |  0
+ 18 | Ivan Idzan           | Napadac    |    3 |   2 |   221 |  0 |  0
+ 18 | Antonio Kolar        | Veznjak    |    3 |   0 |    50 |  0 |  0
+ 18 | Marko Malesevic      | Branič     |    2 |   0 |    30 |  0 |  0
+ 18 | Gabriel Marojevic    | Napadac    |    1 |   0 |     1 |  0 |  0
+ 18 | Luka Stanic          | Veznjak    |    1 |   0 |    15 |  0 |  0
+ 99 | Ilija Radulovic      | Veznjak    |    4 |   0 |   190 |  1 |  0
+
+UKUPNO: 28 igraca
+Najbolji strijelci: Gotovac (10), Jurilj (9), Badanjak (7), Hercigonja (4)
+
+
+================================================================================
+2. JUNIORI - 1. ZNL JUNIORI 25/26
+   CID: 100785503
+================================================================================
+
+--- LJESTVICA ---
+Poz | Klub                      | UT | PB | NR | PO | GD  | GP  | GR   | BOD
+----|---------------------------|----|----|----|----|-----|-----|------|----
+  1 | NK Sava (Z)               | 17 | 15 |  1 |  1 |  62 |  12 |  +50 |  46
+  2 | NK Dubrava Tim Kabel       | 16 | 12 |  2 |  2 |  68 |  20 |  +48 |  38
+  3 | NK Sparta (Z)             | 17 | 10 |  5 |  2 |  59 |  25 |  +34 |  35
+  4 | NK Kasina                 | 16 | 10 |  3 |  3 |  68 |  25 |  +43 |  33
+  5 | NK Studentski grad        | 17 | 10 |  1 |  6 |  59 |  29 |  +30 |  31
+  6 | NK ZET (-3)               | 15 |  9 |  0 |  6 |  36 |  40 |   -4 |  24
+  7 | NK Zelengaj 1948          | 17 |  7 |  0 | 10 |  47 |  55 |   -8 |  21
+  8 | NK Concordia              | 16 |  6 |  3 |  7 |  36 |  46 |  -10 |  21
+  9 | NK Sloga Zagreb           | 16 |  6 |  2 |  8 |  44 |  46 |   -2 |  20
+ 10 | NK Nur                    | 13 |  5 |  2 |  6 |  41 |  46 |   -5 |  17
+ 11 | NK Prigorje (M)           | 17 |  5 |  1 | 11 |  37 |  66 |  -29 |  16
+ 12 | NK Culinec                | 16 |  3 |  1 | 12 |  26 |  77 |  -51 |  10
+ 13 | NK Ivanja Reka            | 14 |  0 |  3 | 11 |  15 |  72 |  -57 |   3
+ 14 | NK Polet (SK)             | 15 |  0 |  2 | 13 |  25 |  64 |  -39 |   2
+
+--- IGRACI NK POLET (SK) - JUNIORI ---
+Br  | Ime i prezime         | Pozicija   | Nast | Gol | ZK | CK
+----|----------------------|------------|------|-----|----|----|
+ 19 | Jan Bozina           | Golman     |    6 |   0 |  0 |  0
+  5 | Ivan Mandic          | Golman     |    9 |   0 |  0 |  0
+  1 | Luka Popovic         | Golman     |   14 |   0 |  0 |  0
+ 27 | Mislav Antolos       | Igrac      |    9 |   0 |  0 |  0
+  - | Marko Balen          | Igrac      |    1 |   0 |  0 |  0
+  8 | Gabriel Blazevic     | Igrac      |   14 |   2 |  1 |  0
+ 11 | Mate Brekalo         | Igrac      |    2 |   0 |  0 |  0
+ 66 | Mateo Bungic         | Igrac      |    5 |   1 |  1 |  0
+ 23 | Sven Filipovic       | Igrac      |    3 |   0 |  0 |  0
+ 16 | Leon Golubovic       | Igrac      |    3 |   0 |  0 |  0
+ 10 | Luka Golubovic       | Igrac      |   12 |   8 |  3 |  1
+  4 | Ivano Guja           | Igrac      |   13 |   1 |  1 |  0
+ 17 | Antonio Harapin      | Igrac      |   12 |   2 |  0 |  0
+ 18 | Noa Lovricic         | Igrac      |   15 |   1 |  0 |  0
+  8 | Tomislav Maric       | Igrac      |   13 |   1 |  0 |  1
+ 18 | Gabriel Marojevic    | Igrac      |    3 |   0 |  0 |  0
+ 23 | Mihael Peric         | Igrac      |    3 |   0 |  0 |  0
+ 13 | Damjan Presecki      | Igrac      |   12 |   0 |  1 |  0
+  5 | Antonio Sertic       | Igrac      |    2 |   0 |  0 |  0
+  9 | Filip Soplanda       | Igrac      |    8 |   2 |  1 |  0
+  3 | Alan Srkoc           | Igrac      |   11 |   0 |  0 |  0
+ 11 | Luka Stanic          | Igrac      |   15 |   4 |  1 |  0
+ 21 | Jakov Skudar         | Igrac      |   14 |   1 |  0 |  0
+ 18 | Rok Vucic            | Igrac      |   15 |   2 |  1 |  0
+
+UKUPNO: 24 igraca
+Najbolji strijelac: Luka Golubovic (8 golova)
+
+
+================================================================================
+3. KADETI - 1. ZNL KADETI 25/26
+   CID: 100785609
+================================================================================
+
+--- LJESTVICA ---
+Poz | Klub                      | UT | PB | NR | PO | GD  | GP  | GR   | BOD
+----|---------------------------|----|----|----|----|-----|-----|------|----
+  1 | NK Kasina                 | 20 | 15 |  3 |  2 |  82 |  38 |  +44 |  48
+  2 | NK Studentski grad        | 19 | 15 |  2 |  2 |  57 |  21 |  +36 |  47
+  3 | NK Sava (Z)               | 19 | 12 |  3 |  4 |  51 |  25 |  +26 |  39
+  4 | NK Sparta (Z)             | 19 | 12 |  2 |  5 |  51 |  27 |  +24 |  38
+  5 | NK Sloga Zagreb           | 19 | 10 |  1 |  8 |  45 |  37 |   +8 |  31
+  6 | NK Ivanja Reka            | 18 |  8 |  3 |  7 |  47 |  35 |  +12 |  27
+  7 | NK Polet (SK)             | 17 |  9 |  0 |  8 |  36 |  32 |   +4 |  27
+  8 | NK Maksimir               | 19 |  8 |  3 |  8 |  39 |  37 |   +2 |  27
+  9 | NK Culinec                | 17 |  7 |  4 |  6 |  38 |  43 |   -5 |  25
+ 10 | NK Tresnjevka             | 18 |  7 |  2 |  9 |  39 |  32 |   +7 |  23
+ 11 | NK Kralj Tomislav         | 18 |  6 |  4 |  8 |  42 |  33 |   +9 |  22
+ 12 | NK Zelengaj 1948          | 19 |  6 |  2 | 11 |  27 |  39 |  -12 |  20
+ 13 | NK Prigorje (M)           | 19 |  4 |  3 | 12 |  21 |  47 |  -26 |  15
+ 14 | NK Concordia              | 18 |  4 |  2 | 12 |  25 |  56 |  -31 |  14
+ 15 | NK ZET                    | 18 |  3 |  4 | 11 |  23 |  60 |  -37 |  13
+ 16 | NK Podsused               | 15 |  1 |  0 | 14 |  12 |  73 |  -61 |   3
+
+--- IGRACI NK POLET (SK) - KADETI ---
+Br  | Ime i prezime            | Pozicija   | Nast | Gol | ZK | CK
+----|-------------------------|------------|------|-----|----|----|
+  4 | Karlo Majdek            | Golman     |   16 |   0 |  0 |  0
+  1 | Vide Raguz              | Golman     |   15 |   0 |  0 |  0
+  6 | Mislav Antolos          | Igrac      |    9 |   3 |  1 |  0
+  2 | Fran Bliznac            | Igrac      |   17 |   2 |  0 |  0
+ 11 | Mate Brekalo            | Igrac      |   11 |   3 |  1 |  0
+  5 | Petar Bungic            | Igrac      |    8 |   1 |  0 |  0
+ 88 | Karlo Efremovski        | Igrac      |    0 |   0 |  0 |  0
+ 16 | Jakov Gagula            | Igrac      |   12 |   4 |  0 |  0
+ 12 | Jakov Grgic             | Igrac      |    7 |   0 |  0 |  0
+ 96 | Marin Gveric            | Igrac      |    1 |   0 |  0 |  0
+ 18 | Jakov Horvat            | Igrac      |    4 |   1 |  0 |  0
+ 18 | Lovro Horvat            | Igrac      |   13 |   3 |  2 |  0
+ 28 | Ivano Juha              | Igrac      |    3 |   1 |  0 |  0
+  7 | Branimir Kujundzic      | Igrac      |   17 |   4 |  0 |  0
+ 14 | Leon Lesdedaj           | Igrac      |    5 |   0 |  0 |  0
+ 49 | Rafael Lukenda          | Igrac      |    3 |   0 |  0 |  0
+ 10 | Sven Majdek             | Igrac      |   17 |   3 |  1 |  0
+ 65 | Lukas Mihaljevic        | Igrac      |    6 |   0 |  0 |  0
+ 23 | Vedran Poljanec         | Igrac      |    2 |   0 |  0 |  0
+  9 | Roko Raguz              | Igrac      |    8 |   4 |  0 |  0
+  5 | Antonio Sertic          | Igrac      |   16 |   0 |  1 |  0
+  3 | Alan Srkoc              | Igrac      |    7 |   0 |  0 |  0
+ 15 | Tin Stjepan Vujica      | Igrac      |   16 |   5 |  0 |  0
+ 27 | Gabriel Zovko           | Igrac      |    7 |   2 |  0 |  0
+
+UKUPNO: 24 igraca
+Najbolji strijelac: Tin Stjepan Vujica (5 golova)
+
+
+================================================================================
+4. PIONIRI - 2. ZNL PIONIRI 25/26
+   CID: 100789844
+================================================================================
+
+--- LJESTVICA ---
+Poz | Klub                      | UT | PB | NR | PO | GD  | GP  | GR    | BOD
+----|---------------------------|----|----|----|----|-----|-----|-------|----
+  1 | NK Prigorje (M)           | 16 | 16 |  0 |  0 | 114 |   7 | +107  |  48
+  2 | NK Savica CC              | 17 | 14 |  0 |  3 |  81 |  39 |  +42  |  42
+  3 | NK Kralj Tomislav         | 16 | 13 |  0 |  3 | 103 |  23 |  +80  |  39
+  4 | NK Culinec                | 16 | 11 |  2 |  3 |  84 |  28 |  +56  |  35
+  5 | NK Botinec                | 16 | 10 |  1 |  5 |  72 |  42 |  +30  |  31
+  6 | NK Nur                    | 17 |  9 |  0 |  8 |  56 |  72 |  -16  |  27
+  7 | NK Concordia              | 15 |  8 |  0 |  7 |  59 |  42 |  +17  |  24
+  8 | NK Precko                 | 16 |  7 |  0 |  9 |  52 |  48 |   +4  |  21
+  9 | NK Odra                   | 16 |  7 |  0 |  9 |  48 |  45 |   +3  |  21
+ 10 | NK Ivanja Reka            | 15 |  7 |  0 |  8 |  42 |  52 |  -10  |  21
+ 11 | NK Sloga Zagreb           | 16 |  3 |  0 | 13 |  34 |  66 |  -32  |   9
+ 12 | NK Polet (SK)             | 16 |  2 |  1 | 13 |  33 |  62 |  -29  |   7
+ 13 | NK Zelengaj 1948          | 15 |  2 |  0 | 13 |  24 | 105 |  -81  |   6
+ 14 | NK Croatia 98             | 15 |  0 |  0 | 15 |   8 | 179 | -171  |   0
+
+--- IGRACI NK POLET (SK) - PIONIRI ---
+Br  | Ime i prezime            | Pozicija   | Nast | Gol | ZK | CK
+----|-------------------------|------------|------|-----|----|----|
+  5 | David Jelica            | Golman     |   14 |   2 |  0 |  1
+  1 | Jan Karaula             | Golman     |   14 |   0 |  0 |  0
+ 33 | Gabriel Arambasic       | Igrac      |    5 |   0 |  0 |  0
+ 97 | Sven Bliznac            | Igrac      |   14 |   3 |  0 |  0
+ 17 | Ivan Dragic             | Igrac      |   13 |   0 |  0 |  0
+ 16 | Domagoj Duvnjak         | Igrac      |   12 |   1 |  0 |  0
+ 96 | Marin Gveric            | Igrac      |   16 |  10 |  0 |  0
+ 18 | Lovro Horvat            | Igrac      |    9 |   5 |  0 |  0
+  4 | Lovro Jezercic          | Igrac      |   16 |   0 |  0 |  0
+ 56 | Toni Lovric             | Igrac      |    9 |   3 |  0 |  0
+ 89 | Simun Matkovic          | Igrac      |   13 |   1 |  0 |  0
+ 10 | Filip Milosevic         | Igrac      |   12 |   1 |  0 |  0
+ 13 | Filip Mirosavljevic     | Igrac      |    1 |   0 |  0 |  0
+ 30 | Andrija Pulic           | Igrac      |   13 |   3 |  1 |  0
+ 11 | Fabijan Puskaric        | Igrac      |    1 |   0 |  0 |  0
+ 13 | Nolan Skrbin            | Igrac      |   10 |   1 |  0 |  0
+ 22 | Jakov Vucenovic         | Igrac      |   13 |   2 |  1 |  0
+  - | Lovro Vucinovic         | Igrac      |    3 |   0 |  0 |  0
+  9 | Petar Zovko             | Igrac      |   16 |   0 |  0 |  0
+
+UKUPNO: 19 igraca
+Najbolji strijelac: Marin Gveric (10 golova)
+
+
+================================================================================
+5. MLADI PIONIRI - 2. ZNL MLADI PIONIRI 25/26
+   CID: 100790028
+================================================================================
+
+--- LJESTVICA ---
+Poz | Klub                      | UT | PB | NR | PO | GD  | GP  | GR    | BOD
+----|---------------------------|----|----|----|----|-----|-----|-------|----
+  1 | NK Savica CC              | 17 | 16 |  0 |  1 | 106 |  24 |  +82  |  48
+  2 | NK Kralj Tomislav         | 16 | 12 |  1 |  3 |  58 |  30 |  +28  |  37
+  3 | NK Culinec                | 16 | 11 |  1 |  4 |  53 |  20 |  +33  |  34
+  4 | NK Odra                   | 16 | 10 |  2 |  4 |  69 |  24 |  +45  |  32
+  5 | NK Prigorje (M)           | 16 | 10 |  2 |  4 |  50 |  12 |  +38  |  32
+  6 | NK Precko                 | 16 | 10 |  2 |  4 |  46 |  15 |  +31  |  32
+  7 | NK Zelengaj 1948          | 15 | 10 |  1 |  4 |  61 |  17 |  +44  |  31
+  8 | NK Concordia              | 16 |  7 |  2 |  7 |  40 |  36 |   +4  |  23
+  9 | NK Ivanja Reka            | 15 |  5 |  2 |  8 |  38 |  50 |  -12  |  17
+ 10 | NK Nur                    | 17 |  5 |  1 | 11 |  54 |  70 |  -16  |  16
+ 11 | NK Botinec                | 16 |  3 |  3 | 10 |  15 |  59 |  -44  |  12
+ 12 | NK Polet (SK)             | 16 |  3 |  0 | 13 |  16 |  68 |  -52  |   9
+ 13 | NK Croatia 98             | 16 |  1 |  1 | 14 |  24 |  88 |  -64  |   4
+ 14 | NK Sloga Zagreb           | 16 |  0 |  0 | 16 |  10 | 127 | -117  |   0
+
+--- IGRACI NK POLET (SK) - MLADI PIONIRI ---
+Br  | Ime i prezime                | Pozicija   | Nast | Gol | ZK | CK
+----|------------------------------|------------|------|-----|----|----|
+ 41 | Marko Balija                 | Golman     |    9 |   0 |  0 |  0
+ 79 | Dominik Kemenc               | Golman     |    9 |   0 |  0 |  0
+ 78 | Pavao Rasic                  | Golman     |   11 |   0 |  1 |  0
+ 23 | Antonio Bozic                | Igrac      |    7 |   0 |  0 |  0
+ 27 | Leo Bozic                    | Igrac      |    9 |   1 |  0 |  0
+ 45 | Dominik Cvrk                 | Igrac      |    7 |   0 |  0 |  0
+ 12 | Jakov Cavar                  | Igrac      |   16 |   0 |  0 |  0
+ 39 | Marko Djebro                 | Igrac      |   15 |   0 |  0 |  0
+ 88 | Mihael Ivanovic              | Igrac      |   11 |   0 |  0 |  0
+ 44 | Dino Kucic                   | Igrac      |    9 |   0 |  0 |  0
+ 73 | Niko Lelas                   | Igrac      |    7 |   0 |  0 |  0
+ 15 | Gabriel Markovic             | Igrac      |    4 |   0 |  0 |  0
+ 55 | Pavao Matkovic               | Igrac      |   11 |   0 |  0 |  0
+  8 | Leon Pole                    | Igrac      |   15 |   4 |  1 |  0
+ 16 | Abel Preberina               | Igrac      |   16 |   0 |  0 |  0
+ 18 | Mislav Prsa                  | Igrac      |   15 |   0 |  0 |  0
+ 55 | Ivan Puseljic                | Igrac      |    0 |   0 |  0 |  0
+ 11 | Fabijan Puskaric             | Igrac      |    5 |   0 |  0 |  0
+ 57 | Karlo Radenkovic             | Igrac      |    4 |   2 |  0 |  0
+ 58 | Mateo Radenkovic             | Igrac      |    4 |   0 |  0 |  0
+ 56 | Petar Radenkovic             | Igrac      |    3 |   0 |  0 |  0
+ 14 | Petar Smolcic                | Igrac      |   14 |   9 |  0 |  0
+ 66 | Ivano Salic                  | Igrac      |    7 |   0 |  0 |  0
+  7 | Karol Teveli                 | Igrac      |   16 |   0 |  0 |  0
+  6 | Simun Petar Tomljenovic      | Igrac      |    2 |   0 |  0 |  0
+
+UKUPNO: 25 igraca
+Najbolji strijelac: Petar Smolcic (9 golova)
+
+
+================================================================================
+6. LIMACI (Beginners) - VISE NATJECANJA
+================================================================================
+
+--- 6a. 2. "B1" ZNL LIMACI grupa "A" 25/26 (regularna sezona) ---
+   CID: 100796348
+
+LJESTVICA:
+Poz | Klub                       | UT | PB | NR | PO | GD | GP | GR   | BOD
+----|----------------------------|----|----|----|----|----|----|------|----
+  1 | NK Hrvatski dragovoljac (Z)| 12 |  8 |  3 |  1 | 44 | 19 | +25  |  27
+  2 | NK Jarun                   | 12 |  8 |  2 |  2 | 40 | 13 | +27  |  26
+  3 | NK Concordia               | 12 |  7 |  4 |  1 | 45 | 18 | +27  |  25
+  4 | NK Kustosija               | 12 |  8 |  1 |  3 | 39 | 20 | +19  |  25
+  5 | NK Trnovcica               | 12 |  8 |  1 |  3 | 45 | 27 | +18  |  25
+  6 | NK Bubamara                | 12 |  6 |  1 |  5 | 21 | 25 |  -4  |  19
+  7 | NK Ravnice                 | 12 |  5 |  2 |  5 | 43 | 34 |  +9  |  17
+  8 | NK Prigorje (Z)            | 12 |  5 |  2 |  5 | 27 | 29 |  -2  |  17
+  9 | NK Zelengaj 1948           | 12 |  5 |  1 |  6 | 36 | 29 |  +7  |  16
+ 10 | NK HASK 1903               | 12 |  4 |  2 |  6 | 26 | 32 |  -6  |  14
+ 11 | NK Prigorje (M)            | 12 |  3 |  0 |  9 | 21 | 47 | -26  |   9
+ 12 | NK Polet (SK)              | 12 |  1 |  0 | 11 | 13 | 72 | -59  |   3
+ 13 | NK Savica CC               | 12 |  0 |  1 | 11 | 15 | 50 | -35  |   1
+
+IGRACI B1:
+Br  | Ime i prezime                 |
+----|-------------------------------|
+ 21 | Josip Mihulja (GK)            |
+  1 | Bruno Kucic                   |
+  2 | Marin Gavran                  |
+  3 | Leon Bliznac                  |
+  4 | Patrik Kemenc                 |
+  5 | Ivano Matus                   |
+  6 | Simun Petar Tomljenovic       |
+  9 | Ivano Maric                   |
+ 10 | Ivan Teveli                   |
+ 11 | Karlo Prsa                    |
+ 16 | Lovro Bikic                   |
+ 22 | Roko Divic                    |
+ 30 | Ante Zovko                    |
+ 54 | Jakov Simic                   |
+ 66 | Fran Pavlic                   |
+ 77 | Matej Franjic                 |
+ 79 | Eldin Muratovic               |
+ 80 | David Josipovic               |
+ 81 | Luka Jokic                    |
+ 99 | Gabrijel Jurajec Baranovic    |
+
+--- 6a-PO. 2. "B1" ZNL LIMACI - skupina play OUT 25/26 ---
+   CID: 107961587
+
+LJESTVICA (play-out faza):
+Poz | Klub                       | UT | PB | NR | PO | GD | GP | GR   | BOD
+----|----------------------------|----|----|----|----|----|----|------|----
+  1 | NK Kustosija               | 15 | 10 |  1 |  4 | 52 | 21 | +31  |  31
+  2 | NK Zelengaj 1948           | 15 |  6 |  2 |  7 | 40 | 35 |  +5  |  20
+  3 | NK Prigorje (Z)            | 14 |  6 |  2 |  6 | 35 | 32 |  +3  |  20
+  4 | NK Kasina                  | 15 |  6 |  2 |  7 | 38 | 42 |  -4  |  20
+  5 | NK Bubamara                | 15 |  6 |  1 |  8 | 23 | 38 | -15  |  19
+  6 | NK Sesvete                 | 16 |  5 |  1 | 10 | 37 | 58 | -21  |  16
+  7 | NK Odra                    | 16 |  3 |  6 |  7 | 35 | 45 | -10  |  15
+  8 | NK Sparta (Z)              | 16 |  4 |  2 | 10 | 20 | 52 | -32  |  14
+  9 | NK Sava (Z)                | 16 |  4 |  2 | 10 | 28 | 92 | -64  |  14
+ 10 | NK Savica CC               | 15 |  2 |  2 | 11 | 27 | 57 | -30  |   8
+ 11 | NK Zagreb City             |  3 |  2 |  1 |  0 | 14 |  6 |  +8  |   7
+ 12 | NK Polet (SK)              | 14 |  2 |  1 | 11 | 18 | 76 | -58  |   7
+ 13 | NK Vrapce                  | 16 |  7 |  1 |  8 | 50 | 47 |  +3  |   3
+
+--- 6b. 2. "B2" ZNL LIMACI grupa "A" 25/26 (regularna sezona) ---
+   CID: 100796411
+
+LJESTVICA:
+Poz | Klub                       | UT | PB | NR | PO | GD | GP | GR   | BOD
+----|----------------------------|----|----|----|----|----|----|------|----
+  1 | NK Concordia               | 12 | 11 |  0 |  1 | 47 |  9 | +38  |  33
+  2 | NK Prigorje (M)            | 12 | 10 |  0 |  2 | 48 |  9 | +39  |  30
+  3 | NK HASK 1903               | 12 |  8 |  2 |  2 | 32 | 15 | +17  |  26
+  4 | NK Jarun                   | 12 |  8 |  1 |  3 | 40 | 14 | +26  |  25
+  5 | NK Hrvatski dragovoljac (Z)| 12 |  7 |  2 |  3 | 44 | 18 | +26  |  23
+  6 | NK Prigorje (Z)            | 12 |  6 |  3 |  3 | 24 | 20 |  +4  |  21
+  7 | NK Ravnice                 | 12 |  6 |  2 |  4 | 29 | 34 |  -5  |  20
+  8 | NK Blato                   | 12 |  3 |  3 |  6 | 12 | 22 | -10  |  12
+  9 | NK Polet (SK)              | 12 |  4 |  0 |  8 | 24 | 36 | -12  |  12
+ 10 | NK Bubamara                | 12 |  3 |  2 |  7 | 20 | 26 |  -6  |  11
+ 11 | NK Savica CC               | 12 |  2 |  0 | 10 | 20 | 50 | -30  |   6
+ 12 | NK Trnovcica               | 12 |  1 |  1 | 10 | 10 | 67 | -57  |   4
+ 13 | NK Zelengaj 1948           | 12 |  0 |  2 | 10 | 16 | 46 | -30  |   2
+
+IGRACI B2:
+Br  | Ime i prezime                 |
+----|-------------------------------|
+ 16 | Lovro Bikic (GK)              |
+ 77 | Matej Franjic (GK)            |
+  3 | Leon Bliznac                  |
+ 22 | Roko Divic                    |
+ 99 | Gabrijel Jurajec Baranovic    |
+  1 | Bruno Kucic                   |
+  9 | Ivano Maric                   |
+  6 | Lucijan Marjanovic            |
+ 79 | Eldin Muratovic               |
+ 66 | Fran Pavlic                   |
+ 79 | Luka Pejakovic                |
+ 65 | Vito Pejakovic                |
+ 10 | Ivan Teveli                   |
+ 94 | Jakov Vincek                  |
+ 10 | Vito Vukoja                   |
+
+--- 6b-PO. 2. "B2" ZNL LIMACI - skupina play OUT 25/26 ---
+   CID: 107961746
+
+LJESTVICA (play-out faza, u tijeku):
+Poz | Klub                       | UT | PB | NR | PO | GD | GP | GR   | BOD
+----|----------------------------|----|----|----|----|----|----|------|----
+  1 | NK Zagreb City             |  2 |  2 |  0 |  0 | 12 |  0 | +12  |   6
+  2 | NK Zelengaj 1948           |  2 |  2 |  0 |  0 |  9 |  5 |  +4  |   6
+  3 | NK Savica CC               |  3 |  2 |  0 |  1 | 13 | 10 |  +3  |   6
+  4 | NK Odra                    |  3 |  2 |  0 |  1 |  4 |  4 |   0  |   6
+  5 | NK Blato                   |  2 |  1 |  1 |  0 |  3 |  1 |  +2  |   4
+  6 | NK Vrapce                  |  2 |  1 |  0 |  1 |  2 |  2 |   0  |   3
+  7 | NK ZET                     |  3 |  1 |  0 |  2 |  5 |  7 |  -2  |   3
+  8 | NK Polet (SK)              |  2 |  0 |  1 |  1 |  4 |  7 |  -3  |   1
+  9 | NK Bubamara                |  1 |  0 |  0 |  1 |  3 |  4 |  -1  |   0
+ 10 | NK Sesvete                 |  2 |  0 |  0 |  2 |  1 |  7 |  -6  |   0
+ 11 | NK Prigorje (Z)            |  2 |  0 |  0 |  2 |  0 |  9 |  -9  |   0
+
+
+================================================================================
+7. ZAGICI (Children 2) - VISE NATJECANJA
+================================================================================
+
+--- 7a. 2. "B1" ZNL ZAGICI grupa "A" 25/26 (regularna sezona) ---
+   CID: 100796516
+
+LJESTVICA:
+Poz | Klub                       | UT | PB | NR | PO | GD | GP | GR   | BOD
+----|----------------------------|----|----|----|----|----|----|------|----
+  1 | NK Ravnice                 | 13 | 12 |  0 |  1 | 71 | 25 | +46  |  36
+  2 | NK Concordia               | 13 | 11 |  0 |  2 | 63 | 19 | +44  |  33
+  3 | NK Trnovcica               | 13 |  9 |  2 |  2 | 59 | 30 | +29  |  29
+  4 | NK Kustosija               | 13 |  8 |  3 |  2 | 53 | 32 | +21  |  27
+  5 | NK Hrvatski dragovoljac (Z)| 13 |  6 |  4 |  3 | 41 | 24 | +17  |  22
+  6 | NK HASK 1903               | 13 |  6 |  2 |  5 | 65 | 32 | +33  |  20
+  7 | NK Prigorje (M)            | 13 |  5 |  5 |  3 | 31 | 26 |  +5  |  20
+  8 | NK Zelengaj 1948           | 13 |  5 |  4 |  4 | 28 | 35 |  -7  |  19
+  9 | NK Jarun                   | 13 |  5 |  0 |  8 | 30 | 40 | -10  |  15
+ 10 | NK Savica CC               | 13 |  3 |  3 |  7 | 34 | 56 | -22  |  12
+ 11 | NK Blato                   | 13 |  3 |  2 |  8 | 25 | 46 | -21  |  11
+ 12 | NK Polet (SK)              | 13 |  2 |  1 | 10 | 17 | 75 | -58  |   7
+ 13 | NK Prigorje (Z)            | 13 |  1 |  1 | 11 | 21 | 55 | -34  |   4
+ 14 | NK Bubamara                | 13 |  1 |  1 | 11 | 22 | 65 | -43  |   4
+
+IGRACI B1 ZAGICI:
+Br  | Ime i prezime              |
+----|----------------------------|
+ 44 | Mateo Brnjic (GK)          |
+ 34 | Andrija Lezaja (GK)        |
+ 98 | Jakov Svalina (GK)         |
+ 69 | Juro Bijelic                |
+ 42 | Jan Leon Brekalo           |
+ 47 | Andrija Lucic               |
+ 41 | Petar Mahin                |
+ 92 | Borna Oreski               |
+ 65 | Vito Pejakovic             |
+ 45 | Marko Penic                |
+  7 | Petar Salic                |
+ 94 | Jakov Vincek               |
+
+--- 7a-PO. 2. "B1" ZNL ZAGICI - skupina play OUT 25/26 ---
+   CID: 107961810
+
+LJESTVICA (play-out faza):
+Poz | Klub                       | UT | PB | NR | PO | GD | GP | GR   | BOD
+----|----------------------------|----|----|----|----|----|----|------|----
+  1 | NK Kustosija               | 16 | 10 |  3 |  3 | 70 | 37 | +33  |  33
+  2 | NK Odra                    | 16 | 10 |  1 |  5 | 53 | 51 |  +2  |  31
+  3 | NK Sparta (Z)              | 16 |  7 |  1 |  8 | 62 | 51 | +11  |  22
+  4 | NK Zelengaj 1948           | 16 |  6 |  4 |  6 | 38 | 48 | -10  |  22
+  5 | NK Mladost - Buzin         | 16 |  6 |  3 |  7 | 49 | 53 |  -4  |  21
+  6 | NK Savica CC               | 16 |  6 |  3 |  7 | 48 | 62 | -14  |  21
+  7 | NK Blato                   | 16 |  4 |  4 |  8 | 38 | 57 | -19  |  16
+  8 | NK Kasina                  | 16 |  5 |  1 | 10 | 44 | 72 | -28  |  16
+  9 | NK Sesvete                 | 16 |  3 |  1 | 12 | 24 | 63 | -39  |  10
+ 10 | NK Bubamara                | 16 |  3 |  1 | 14 | 29 | 75 | -46  |  10
+ 11 | NK Polet (SK)              | 16 |  3 |  1 | 12 | 27 | 85 | -58  |  10
+ 12 | NK Prigorje (Z)            | 16 |  2 |  3 | 11 | 37 | 62 | -25  |   9
+ 13 | NK Vrapce                  | 16 |  3 |  0 | 13 | 21 | 90 | -69  |   9
+ 14 | NK ZET                     | 16 |  2 |  1 | 13 | 33 |101 | -68  |   7
+
+--- 7b. 2. "B2" ZNL ZAGICI grupa "A" 25/26 (regularna sezona) ---
+   CID: 100796768
+
+LJESTVICA:
+Poz | Klub                       | UT | PB | NR | PO | GD | GP | GR   | BOD
+----|----------------------------|----|----|----|----|----|----|------|----
+  1 | NK HASK 1903               | 10 |  8 |  2 |  0 | 49 | 12 | +37  |  26
+  2 | NK Prigorje (M)            | 10 |  8 |  1 |  1 | 40 | 12 | +28  |  25
+  3 | NK Concordia               | 10 |  8 |  0 |  2 | 54 | 15 | +39  |  24
+  4 | NK Zelengaj 1948           | 10 |  6 |  0 |  4 | 38 | 24 | +14  |  18
+  5 | NK Savica CC               | 10 |  5 |  2 |  3 | 32 | 26 |  +6  |  17
+  6 | NK Prigorje (Z)            | 10 |  4 |  2 |  4 | 28 | 26 |  +2  |  14
+  7 | NK Hrvatski dragovoljac (Z)| 10 |  4 |  0 |  6 | 28 | 34 |  -6  |  12
+  8 | NK Blato                   | 10 |  4 |  0 |  6 | 28 | 36 |  -8  |  12
+  9 | NK Polet (SK)              | 10 |  1 |  2 |  7 | 23 | 49 | -26  |   5
+ 10 | NK Trnovcica               | 10 |  1 |  1 |  8 | 17 | 60 | -43  |   4
+ 11 | NK Ravnice                 | 10 |  1 |  0 |  9 | 11 | 54 | -43  |   3
+
+IGRACI B2 ZAGICI:
+Br  | Ime i prezime              |
+----|----------------------------|
+  9 | Bruno Juzbasic (GK)        |
+  1 | Lennox Mijoc (GK)          |
+  5 | Oliver Muzenjak (GK)       |
+  6 | Lovro Alvir                |
+  8 | Luka Bliznac               |
+  2 | Noa Capan                  |
+ 11 | Tin Crnicki                |
+ 17 | Rayan Cufta                |
+  9 | Pablo Fredotovic           |
+ 13 | Karlo Kovac                |
+  4 | Karlo Lukic                |
+ 18 | Matej Maric                |
+  3 | Fran Dragan Skender        |
+  7 | Petar Salic                |
+ 10 | Ante Teveli                |
+ 10 | Vito Vukoja                |
+
+--- 7b-PO. 2. "B2" ZNL ZAGICI - skupina play OUT 25/26 ---
+   CID: 107961931
+
+LJESTVICA (play-out faza):
+Poz | Klub                       | UT | PB | NR | PO | GD | GP | GR   | BOD
+----|----------------------------|----|----|----|----|----|----|------|----
+  1 | NK Mladost - Buzin         | 13 | 11 |  1 |  1 | 61 | 13 | +48  |  34
+  2 | NK Savica CC               | 13 |  6 |  2 |  5 | 37 | 36 |  +1  |  20
+  3 | NK Zelengaj 1948           | 11 |  6 |  0 |  5 | 38 | 25 | +13  |  18
+  4 | NK Prigorje (Z)            | 12 |  5 |  2 |  5 | 30 | 30 |   0  |  17
+  5 | NK Odra                    | 12 |  5 |  1 |  6 | 33 | 28 |  +5  |  16
+  6 | NK Blato                   | 13 |  5 |  0 |  8 | 36 | 46 | -10  |  15
+  7 | NK Sesvete                 | 13 |  4 |  0 |  9 | 26 | 44 | -18  |  12
+  8 | NK Polet (SK)              | 12 |  3 |  2 |  7 | 32 | 52 | -20  |  11
+  9 | NK Kasina                  | 13 |  2 |  1 | 10 | 26 | 68 | -42  |   7
+ 10 | NK Vrapce                  | 11 |  1 |  1 |  9 |  9 | 76 | -67  |   4
+ 11 | NK Maksimir                |  1 |  1 |  0 |  0 |  7 |  3 |  +4  |   3
+
+--- 7c. 3. "E" ZNL ZAGICI 25/26 ---
+   CID: 100799160
+   NAPOMENA: NK Polet (SK) NE pojavljuje se u ljestvici ovog natjecanja.
+   Moguce da su registrirani ali ne igraju u ovoj skupini.
+
+LJESTVICA:
+Poz | Klub                       | UT | PB | NR | PO | GD | GP | GR   | BOD
+----|----------------------------|----|----|----|----|----|----|------|----
+  1 | NK Sava (Z)                | 12 | 11 |  0 |  1 | 69 | 14 | +55  |  33
+  2 | NK Zagreb 041              | 13 | 10 |  0 |  3 | 68 | 20 | +48  |  30
+  3 | NK Sava (J)                | 12 |  9 |  1 |  2 | 70 | 14 | +56  |  28
+  4 | NK Utrina                  | 13 |  8 |  0 |  5 | 65 | 39 | +26  |  24
+  5 | NK Sloga Zagreb            | 13 |  8 |  0 |  5 | 49 | 40 |  +9  |  24
+  6 | NK Dinamo Odranski Obrez   | 13 |  7 |  0 |  6 | 28 | 41 | -13  |  21
+  7 | NK Hrvatski Leskovac       | 13 |  4 |  1 |  8 | 28 | 39 | -11  |  13
+  8 | NK Gavran 2003             | 13 |  4 |  1 |  8 | 37 | 54 | -17  |  13
+  9 | NK Most                    | 13 |  1 |  0 | 12 | 17 | 89 | -72  |   3
+ 10 | NK Dragonozec              | 13 |  0 |  1 | 12 | 15 | 96 | -81  |   1
+
+
+================================================================================
+SAZETAK - SVE KATEGORIJE NK POLET SVETA KLARA 2025/26
+================================================================================
+
+Kategorija        | Natjecanje                              | Poz | UT | BOD | GD | GP
+------------------|-----------------------------------------|-----|----|----|----|----|
+SENIORI           | 4. NL Sredista Zg sk.A                  |  4. | 19 | 33 | 43 | 35
+JUNIORI           | 1. ZNL Juniori                          | 14. | 15 |  2 | 25 | 64
+KADETI            | 1. ZNL Kadeti                           |  7. | 17 | 27 | 36 | 32
+PIONIRI           | 2. ZNL Pioniri                          | 12. | 16 |  7 | 33 | 62
+MLADI PIONIRI     | 2. ZNL Mladi pioniri                    | 12. | 16 |  9 | 16 | 68
+LIMACI B1         | 2. "B1" ZNL Limaci gr.A (reg.)          | 12. | 12 |  3 | 13 | 72
+LIMACI B1         | 2. "B1" ZNL Limaci play-out             | 12. | 14 |  7 | 18 | 76
+LIMACI B2         | 2. "B2" ZNL Limaci gr.A (reg.)          |  9. | 12 | 12 | 24 | 36
+LIMACI B2         | 2. "B2" ZNL Limaci play-out             |  8. |  2 |  1 |  4 |  7
+ZAGICI B1         | 2. "B1" ZNL Zagici gr.A (reg.)          | 12. | 13 |  7 | 17 | 75
+ZAGICI B1         | 2. "B1" ZNL Zagici play-out             | 11. | 16 | 10 | 27 | 85
+ZAGICI B2         | 2. "B2" ZNL Zagici gr.A (reg.)          |  9. | 10 |  5 | 23 | 49
+ZAGICI B2         | 2. "B2" ZNL Zagici play-out             |  8. | 12 | 11 | 32 | 52
+
+Ukupno registriranih igraca po kategorijama:
+  - Seniori: 28 igraca
+  - Juniori: 24 igraca
+  - Kadeti: 24 igraca
+  - Pioniri: 19 igraca
+  - Mladi pioniri: 25 igraca
+  - Limaci: ~20 igraca (B1) + ~15 igraca (B2)
+  - Zagici: ~12 igraca (B1) + ~16 igraca (B2)
+================================================================================

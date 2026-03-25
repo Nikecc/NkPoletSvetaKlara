@@ -1,0 +1,6 @@
+<script>
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');document.getElementById('navToggle').classList.toggle('active')}
+function closeMenu(){document.getElementById('navLinks').classList.remove('open');document.getElementById('navToggle').classList.remove('active')}
+document.getElementById('navLinks').addEventListener('click',function(e){if(e.target===this)closeMenu()});
+</script>

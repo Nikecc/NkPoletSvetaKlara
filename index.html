@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NK Polet Sveta Klara — Od 1948.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--blue:#1B2A4A;--blue-l:#2C4470;--blue-d:#0F1A30;
+--red:#D42428;--red-l:#E84E52;--red-d:#A01C1F;
+--dark:#0B0F18;--dark-2:#111827;--dark-3:#1A2233;--dark-4:#212B3E;
+--light:#F7F7F8;--light-2:#EEEEF0;--cream:#FAFAF9;--white:#FFF;
+--td:#1A1A2E;--td2:#4A5568;--td3:#717D8F;
+--border:rgba(255,255,255,.06);--bl:rgba(0,0,0,.06);
+--r:12px;
+--fh:'Barlow Condensed',sans-serif;--fb:'Inter',sans-serif;--fm:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--fb);background:var(--light);color:var(--td);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5{font-family:var(--fh);text-transform:uppercase;letter-spacing:.02em}
+.container{max-width:1320px;margin:0 auto;padding:0 48px}
+@media(max-width:768px){.container{padding:0 20px}}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+.sec{padding:100px 0}
+.sec-title{font-size:clamp(2rem,4vw,2.8rem);font-weight:800;letter-spacing:.03em}
+/* Pitch line decoration */
+.pitch-divider{display:flex;align-items:center;justify-content:center;gap:1.5rem;padding:0 0 48px}
+.pitch-divider::before,.pitch-divider::after{content:'';flex:1;height:1px;background:var(--bl)}
+.pitch-divider .cm{width:36px;height:36px;border:1.5px solid rgba(0,0,0,.08);border-radius:50%;position:relative}
+.pitch-divider .cm::after{content:'';width:5px;height:5px;background:rgba(0,0,0,.1);border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.pitch-divider.light::before,.pitch-divider.light::after{background:rgba(255,255,255,.08)}
+.pitch-divider.light .cm{border-color:rgba(255,255,255,.1)}
+.pitch-divider.light .cm::after{background:rgba(255,255,255,.15)}
+/* Goal net texture */
+.net-bg{position:relative}
+.net-bg::after{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 12px,rgba(255,255,255,.015) 12px,rgba(255,255,255,.015) 13px),repeating-linear-gradient(-45deg,transparent,transparent 12px,rgba(255,255,255,.015) 12px,rgba(255,255,255,.015) 13px);pointer-events:none;z-index:0}
+
+/* ===== PRELOADER ===== */
+#preloader{position:fixed;inset:0;z-index:99999;background:var(--dark);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s,visibility .6s}
+#preloader.hide{opacity:0;visibility:hidden}
+#preloader .plogo{width:100px;animation:pp 1.5s ease-in-out infinite}
+@keyframes pp{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+#preloader .bar{width:120px;height:2px;background:var(--dark-3);border-radius:2px;margin-top:24px;overflow:hidden}
+#preloader .bar i{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--red),var(--red-l));border-radius:2px;animation:lb 1.8s ease forwards}
+@keyframes lb{to{width:100%}}
+#preloader .ptxt{font-family:var(--fh);font-size:1.2rem;color:rgba(255,255,255,.3);letter-spacing:.25em;margin-top:16px;text-transform:uppercase}
+
+/* ===== NAV ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 48px;transition:all .4s}
+.nav::after{content:'';position:absolute;inset:0;background:rgba(11,15,24,.94);backdrop-filter:blur(20px);opacity:0;transition:opacity .4s;z-index:-1}
+.nav.scrolled::after{opacity:1}
+.nav.scrolled{border-bottom:1px solid var(--border)}
+.ni{display:flex;align-items:center;justify-content:space-between;width:100%}
+.nav-left{display:flex;align-items:center;gap:40px}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-crest{width:52px;height:52px;flex-shrink:0;transition:transform .3s}.nav-crest img{width:100%;height:100%;object-fit:contain}
+.nav-brand:hover .nav-crest{transform:scale(1.08) rotate(3deg)}
+.nav-name{font-family:var(--fh);font-size:1.3rem;font-weight:700;color:#fff;letter-spacing:.1em}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:.78rem;font-weight:600;color:var(--td3);text-transform:uppercase;letter-spacing:.08em;transition:color .3s;position:relative;font-family:var(--fb)}
+.nav-links a:hover{color:#fff}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--red);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-social a{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--td3);transition:all .3s}
+.nav-social a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:5px}
+.nav-toggle span{width:20px;height:1.5px;background:#fff;transition:all .3s;border-radius:1px}
+.nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}
+.nav-toggle.active span:nth-child(2){opacity:0}
+.nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+@media(max-width:1024px){.nav{padding:0 20px}.nav-toggle{display:flex;z-index:10001}.nav-links{position:fixed;inset:0;background:rgba(11,15,24,.97);flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .4s;z-index:10000}.nav-links.open{opacity:1;pointer-events:all}.nav-links a{font-size:1.3rem}.nav-social{display:none}}
+
+/* ===== HERO (100vh) ===== */
+.hero{position:relative;height:100vh;overflow:hidden}
+.hero-slides{position:absolute;inset:0}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s}.hero-slide.active{opacity:1}
+.hero-slide img{width:100%;height:100%;object-fit:cover}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,15,24,.9) 0%,rgba(11,15,24,.5) 45%,rgba(11,15,24,.15) 100%),linear-gradient(180deg,transparent 40%,rgba(11,15,24,.8) 100%);z-index:1}
+.hero-crest{position:absolute;right:8%;top:50%;transform:translateY(-50%);z-index:2;width:320px;height:320px;opacity:.08;pointer-events:none;filter:brightness(2)}
+.hero-crest img{width:100%;height:100%;object-fit:contain}
+.hero-content{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:0 48px 100px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:4px;background:var(--red);font-size:.7rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.12em;margin-bottom:24px;font-family:var(--fb)}
+.hero-title{font-size:clamp(3.5rem,8vw,6.5rem);font-weight:900;line-height:.92;color:#fff;margin-bottom:16px;max-width:750px}
+.hero-title .thin{font-weight:300;color:rgba(255,255,255,.5)}
+.hero-desc{font-size:1.05rem;color:rgba(255,255,255,.5);max-width:480px;line-height:1.7;margin-bottom:32px;font-weight:300}
+.hero-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 40px;background:var(--red);border:none;color:#fff;font-family:var(--fh);font-size:1rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:4px;transition:all .3s;cursor:pointer}
+.hero-btn:hover{background:#fff;color:var(--red);transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.hero-btn svg{transition:transform .3s}.hero-btn:hover svg{transform:translateX(4px)}
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.3);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-family:var(--fb);font-weight:600}
+.hero-scroll .line{width:1px;height:32px;background:linear-gradient(rgba(255,255,255,.3),transparent);animation:scrollL 2s ease infinite}
+@keyframes scrollL{0%{transform:scaleY(1);opacity:1}100%{transform:scaleY(0);opacity:0;transform-origin:bottom}}
+.hero-pager{position:absolute;bottom:100px;right:48px;z-index:3;display:flex;gap:8px}
+.hero-dot{width:32px;height:3px;border-radius:2px;background:rgba(255,255,255,.2);cursor:pointer;transition:all .4s}
+.hero-dot.active{width:52px;background:var(--red)}
+@media(max-width:768px){.hero-content{padding:0 20px 120px}.hero-pager{right:20px;bottom:60px}.hero-scroll{bottom:16px}.hero-crest{width:180px;height:180px;right:5%}}
+
+/* ===== NEWS (Juve tall cards) ===== */
+.news{background:var(--white);padding:60px 0 40px}
+.news .sec-title{color:var(--td)}
+.news-scroll{display:flex;gap:16px;overflow-x:auto;padding:8px 0;scroll-snap-type:x mandatory;-ms-overflow-style:none;scrollbar-width:none}
+.news-scroll::-webkit-scrollbar{display:none}
+.nc{flex-shrink:0;width:280px;height:440px;scroll-snap-align:start;border-radius:16px;overflow:hidden;position:relative;cursor:pointer;transition:transform .4s}
+.nc:hover{transform:translateY(-8px)}
+.nc img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.nc:hover img{transform:scale(1.05)}
+.nc-ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 25%,rgba(10,15,25,.9) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:28px 24px}
+.nc-ov .cat{font-family:var(--fb);font-size:.6rem;font-weight:700;color:var(--red-l);text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px}
+.nc-ov h3{font-family:var(--fh);font-size:1.3rem;font-weight:700;color:#fff;line-height:1.15;margin-bottom:16px;text-transform:uppercase}
+.nc-btn{display:inline-flex;padding:10px 20px;background:#fff;color:var(--td);font-family:var(--fh);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;border-radius:3px;transition:all .3s;align-self:flex-start}
+.nc:hover .nc-btn{background:var(--red);color:#fff}
+.news-bot{display:flex;justify-content:space-between;align-items:center;margin-top:28px}
+.news-arrows{display:flex;gap:8px}
+.news-arrows button{width:48px;height:48px;border-radius:50%;background:none;border:1.5px solid var(--bl);color:var(--td3);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.news-arrows button:hover{border-color:var(--td);color:var(--td)}
+.news-all{font-family:var(--fh);font-size:.9rem;font-weight:600;color:var(--td3);text-transform:uppercase;letter-spacing:.1em;display:flex;align-items:center;gap:10px;transition:color .3s}
+.news-all:hover{color:var(--red)}
+
+/* ===== FIXTURES & TABLE ===== */
+.fixtures{background:var(--white);border-top:none;padding:40px 0 100px}
+.fixtures .sec-title{color:var(--td)}
+.fix-grid{display:grid;grid-template-columns:1fr;gap:40px}
+.fix-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px}
+.fix-card{background:var(--light);border:1px solid var(--bl);border-radius:10px;padding:14px 18px;display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;transition:all .3s;position:relative;overflow:hidden}
+.fix-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
+.fix-card.w::before{background:#22c55e}.fix-card.d::before{background:#f59e0b}.fix-card.next::before{background:var(--red)}
+.fix-card:hover{background:var(--light-2);transform:translateX(3px)}
+.fix-team{display:flex;align-items:center;gap:8px}.fix-team.right{justify-content:flex-end;text-align:right}
+.fix-badge{width:24px;height:24px;flex-shrink:0}.fix-badge img{width:100%;height:100%;object-fit:contain}
+.fix-badge.opp{width:24px;height:24px;border-radius:5px;background:var(--light-2);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:10px;color:var(--td3)}
+.fix-tname{font-family:var(--fh);font-size:.9rem;font-weight:600;color:var(--td);letter-spacing:.02em}
+.fix-center{text-align:center}
+.fix-score{font-family:var(--fm);font-size:1.1rem;font-weight:700;color:var(--td)}
+.fix-date{font-size:.58rem;color:var(--td3);margin-top:1px;font-family:var(--fm)}
+.fix-vs{font-family:var(--fh);font-size:1rem;color:var(--td3)}
+/* table */
+.tcard{background:var(--light);border:1px solid var(--bl);border-radius:var(--r);overflow:hidden}
+.tcard-h{padding:18px 24px;border-bottom:1px solid var(--bl);font-family:var(--fh);font-size:1.2rem;font-weight:700;color:var(--td);letter-spacing:.05em;display:flex;align-items:center;gap:10px}
+.tcard-h img{width:22px;height:22px;object-fit:contain}
+.tbl-scroll{max-height:340px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--red-l) var(--light-2)}
+.tbl-scroll::-webkit-scrollbar{width:4px}
+.tbl-scroll::-webkit-scrollbar-track{background:var(--light-2)}
+.tbl-scroll::-webkit-scrollbar-thumb{background:var(--red-l);border-radius:4px}
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{font-family:var(--fb);font-size:.68rem;font-weight:700;color:var(--td3);text-transform:uppercase;letter-spacing:.08em;padding:12px 14px;text-align:left;border-bottom:1px solid var(--bl);position:sticky;top:0;background:var(--light);z-index:1}
+.tbl td{padding:12px 14px;font-size:.88rem;border-bottom:1px solid var(--bl);color:var(--td2);font-family:var(--fb)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl .pos{font-family:var(--fm);font-weight:700;color:var(--td3);width:28px;font-size:.82rem}
+.tbl .team{font-family:var(--fh);font-weight:600;color:var(--td);font-size:.95rem;letter-spacing:.02em}
+.tbl .pts{font-family:var(--fm);font-weight:700;color:var(--td);font-size:.88rem}
+.tbl .num{font-family:var(--fm);font-size:.82rem}
+.tbl tr.hl{background:rgba(212,36,40,.05)}
+.tbl tr.hl td{border-bottom-color:rgba(212,36,40,.08)}
+.tbl tr.hl .team{color:var(--red)}.tbl tr.hl .pts{color:var(--red)}
+
+/* ===== SQUAD (ROMA) ===== */
+.squad{background:var(--light);padding:60px 0 0;overflow:hidden}
+.squad-title-wrap{text-align:center;margin-bottom:32px}
+.squad-title{font-family:var(--fh);font-size:clamp(4rem,10vw,8rem);font-weight:900;color:transparent;-webkit-text-stroke:2.5px var(--td);letter-spacing:.06em;line-height:1;margin-bottom:4px}
+.squad .sec-sub{color:var(--td3);font-family:var(--fb);font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;text-align:center}
+.player-thumbs-wrap{position:relative;margin-bottom:0}
+.player-thumbs{display:flex;gap:24px;overflow-x:auto;padding:16px 48px 24px;-ms-overflow-style:none;scrollbar-width:none;scroll-snap-type:x mandatory;justify-content:flex-start}
+.player-thumbs::-webkit-scrollbar{display:none}
+.pt{flex-shrink:0;text-align:center;cursor:pointer;scroll-snap-align:start;transition:all .3s}
+.pt-c{width:88px;height:100px;border-radius:8px;overflow:hidden;margin:0 auto 8px;border:2.5px solid transparent;transition:all .4s;position:relative;background:var(--light-2)}
+.pt.active .pt-c{border-color:var(--red);box-shadow:0 4px 20px rgba(212,36,40,.15)}
+.pt:hover .pt-c{border-color:rgba(0,0,0,.08)}
+.pt-c img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.pt-n{font-family:var(--fh);font-size:.75rem;font-weight:600;color:var(--td3);transition:color .3s;max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pt.active .pt-n{color:var(--td)}
+.tn{position:absolute;top:50%;transform:translateY(-60%);width:36px;height:36px;border-radius:50%;background:var(--white);border:1px solid var(--bl);color:var(--td);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:5;transition:all .3s;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.tn:hover{background:var(--red);border-color:var(--red);color:#fff}
+.tn.left{left:8px}.tn.right{right:8px}
+/* Player detail */
+.pd{display:grid;grid-template-columns:1fr 1fr;min-height:540px;background:var(--dark-2);position:relative;overflow:hidden}
+.pd::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 80%,rgba(212,36,40,.05),transparent 50%);z-index:0}
+.pd-vis{position:relative;display:flex;align-items:flex-end;justify-content:center;z-index:1}
+.pd-vis img{position:relative;z-index:2;max-height:500px;width:auto;max-width:90%;object-fit:contain;filter:drop-shadow(0 10px 40px rgba(0,0,0,.4))}
+.pd-bgn{position:absolute;font-family:var(--fh);font-size:24rem;font-weight:900;line-height:1;color:rgba(255,255,255,.025);right:-30px;bottom:-20px;z-index:1;user-select:none}
+.pd-glow{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(27,42,74,.15),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);z-index:0}
+.pd-info{display:flex;flex-direction:column;justify-content:center;padding:60px;position:relative;z-index:1}
+.pd-num{font-family:var(--fh);font-size:8rem;font-weight:900;color:rgba(255,255,255,.05);line-height:1;margin-bottom:-28px}
+.pd-pos{font-family:var(--fh);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.25em;color:var(--red-l);margin-bottom:8px}
+.pd-name{font-family:var(--fh);font-size:clamp(2.5rem,5vw,4.2rem);font-weight:900;color:#fff;line-height:1;margin-bottom:24px}
+.pd-stats{display:flex;gap:36px;margin-bottom:32px}
+.pd-stat .val{font-family:var(--fh);font-size:2.2rem;font-weight:800;color:#fff}
+.pd-stat .val .u{font-size:.9rem;color:var(--td3);font-weight:400}
+.pd-stat .lbl{font-family:var(--fb);font-size:.6rem;color:var(--td3);text-transform:uppercase;letter-spacing:.12em;margin-top:2px}
+.pd-meta{display:flex;gap:12px;flex-wrap:wrap}
+.pd-mi{padding:8px 16px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:8px;font-size:.72rem;color:var(--td3);display:flex;align-items:center;gap:6px;font-family:var(--fb)}
+.pd-mi svg{width:14px;height:14px;color:rgba(255,255,255,.25)}
+.pd-mi img{width:16px;height:16px;object-fit:contain}
+@media(max-width:900px){.pd{grid-template-columns:1fr}.pd-vis{height:360px;padding-top:20px}.pd-vis img{max-height:330px}.pd-info{padding:32px 24px 48px}.pd-bgn{font-size:14rem}.pd-num{font-size:5rem}}
+
+/* ===== TOP SCORERS (animated bars) ===== */
+.scorers{background:var(--dark);position:relative;overflow:hidden}
+.scorers::after{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 12px,rgba(255,255,255,.012) 12px,rgba(255,255,255,.012) 13px),repeating-linear-gradient(-45deg,transparent,transparent 12px,rgba(255,255,255,.012) 12px,rgba(255,255,255,.012) 13px);pointer-events:none}
+.scorers .container{position:relative;z-index:1}
+.scorers .sec-title{color:#fff}
+.scorers-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+@media(max-width:900px){.scorers-grid{grid-template-columns:1fr}}
+.sc-hero{position:relative;text-align:center}
+.sc-hero-img{width:240px;height:280px;margin:0 auto;position:relative}
+.sc-hero-img img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 40px rgba(0,0,0,.4));position:relative;z-index:2}
+.sc-hero-num{position:absolute;font-family:var(--fh);font-size:12rem;font-weight:900;color:rgba(255,255,255,.03);top:50%;left:50%;transform:translate(-50%,-50%);z-index:1}
+.sc-hero-glow{position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(212,36,40,.12),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);z-index:0}
+.sc-hero-info{margin-top:16px}
+.sc-hero-info .crown{font-size:.7rem;color:var(--red-l);text-transform:uppercase;letter-spacing:.2em;font-family:var(--fb);font-weight:700;margin-bottom:4px}
+.sc-hero-info h3{font-family:var(--fh);font-size:2rem;font-weight:800;color:#fff}
+.sc-hero-info .goals-big{font-family:var(--fh);font-size:3.5rem;font-weight:900;color:var(--red-l);line-height:1;margin-top:4px}
+.sc-hero-info .goals-lbl{font-family:var(--fb);font-size:.6rem;color:var(--td3);text-transform:uppercase;letter-spacing:.15em}
+/* Bars */
+.sc-bars{display:flex;flex-direction:column;gap:16px}
+.sc-bar-item{display:grid;grid-template-columns:56px 1fr 48px;gap:14px;align-items:center}
+.sc-ava{width:56px;height:56px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,.06);background:var(--dark-3)}
+.sc-ava img{width:100%;height:100%;object-fit:cover}
+.sc-bar-wrap{}
+.sc-bar-name{font-family:var(--fh);font-size:.9rem;font-weight:700;color:#fff;letter-spacing:.03em;margin-bottom:6px}
+.sc-bar-track{height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden}
+.sc-bar-fill{height:100%;border-radius:4px;width:0;transition:width 1.5s cubic-bezier(.22,1,.36,1)}
+.sc-bar-fill.r1{background:linear-gradient(90deg,var(--red),var(--red-l))}
+.sc-bar-fill.r2{background:linear-gradient(90deg,var(--blue),var(--blue-l))}
+.sc-bar-fill.r3{background:linear-gradient(90deg,#1a5c3a,#22c55e)}
+.sc-bar-fill.r4{background:linear-gradient(90deg,#7c3aed,#a78bfa)}
+.sc-goals{font-family:var(--fm);font-size:1.3rem;font-weight:700;color:#fff;text-align:right}
+
+/* ===== NAŠA PRIČA ===== */
+.story{background:var(--blue);position:relative;overflow:hidden}
+.story::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(44,68,112,.5),transparent 60%)}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1}
+.story-text .sl{font-family:var(--fb);font-size:.65rem;font-weight:700;color:var(--red-l);text-transform:uppercase;letter-spacing:.2em;margin-bottom:12px}
+.story-text h2{font-family:var(--fh);font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:#fff;margin-bottom:20px;line-height:1.05}
+.story-text p{color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:14px;font-size:.92rem}
+.story-stats{display:flex;gap:28px;margin-top:32px;padding-top:28px;border-top:1px solid rgba(255,255,255,.1)}
+.story-stat .v{font-family:var(--fh);font-size:2.4rem;font-weight:900;color:#fff}
+.story-stat .l{font-family:var(--fb);font-size:.55rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.12em;margin-top:2px}
+/* Field */
+.field-wrap{position:relative;width:100%;aspect-ratio:1.5/1;max-width:520px;margin:0 auto}
+.field-svg{width:100%;height:100%}
+.fl{fill:none;stroke:rgba(255,255,255,.2);stroke-width:1.5}
+.fc{fill:none;stroke:rgba(255,255,255,.2);stroke-width:1.5}
+.ff{fill:rgba(255,255,255,.025)}
+.ball{fill:var(--red-l);filter:drop-shadow(0 0 12px rgba(232,78,82,.35))}
+.field-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:90px;height:90px;opacity:.12}
+.field-badge img{width:100%;height:100%;object-fit:contain}
+@keyframes mb{0%{cx:120;cy:90}15%{cx:200;cy:50}30%{cx:280;cy:110}50%{cx:350;cy:70}65%{cx:300;cy:130}80%{cx:220;cy:80}100%{cx:120;cy:90}}
+.ball{animation:mb 8s ease-in-out infinite}
+.fd{fill:rgba(255,255,255,.25);animation:fda 2s ease-in-out infinite}
+.fd:nth-child(2){animation-delay:.3s}.fd:nth-child(3){animation-delay:.6s}.fd:nth-child(4){animation-delay:.9s}.fd:nth-child(5){animation-delay:1.2s}
+@keyframes fda{0%,100%{r:3;opacity:.25}50%{r:5;opacity:.6}}
+@media(max-width:900px){.story-grid{grid-template-columns:1fr}.field-wrap{margin-top:40px}}
+
+/* ===== STADIUM ===== */
+.stadium{background:var(--cream);border-top:1px solid var(--bl)}
+.stadium .sec-title{color:var(--td)}
+.stad-wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:0;border-radius:20px;overflow:hidden;box-shadow:0 12px 50px rgba(0,0,0,.06);min-height:440px}
+.stad-img{position:relative;overflow:hidden}.stad-img img{width:100%;height:100%;object-fit:cover;min-height:440px}
+.stad-img-ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(11,15,24,.7) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:36px}
+.stad-img-ov h3{font-family:var(--fh);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#fff}
+.stad-img-ov p{color:rgba(255,255,255,.55);font-size:.82rem;margin-top:4px}
+.stad-info{background:var(--blue);padding:48px 40px;display:flex;flex-direction:column;justify-content:center;gap:20px}
+.stad-item{display:flex;gap:14px;align-items:flex-start}
+.stad-icon{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.stad-icon svg{width:18px;height:18px;color:var(--red-l)}
+.stad-item h4{font-family:var(--fh);font-size:.9rem;font-weight:700;color:#fff;margin-bottom:2px;letter-spacing:.03em}
+.stad-item p{font-family:var(--fb);font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.5}
+.stad-contact{margin-top:8px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08)}
+.stad-contact a{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.45);font-size:.75rem;margin-right:20px;transition:color .3s;font-family:var(--fb)}
+.stad-contact a:hover{color:#fff}
+@media(max-width:900px){.stad-wrap{grid-template-columns:1fr}}
+
+/* ===== ŠKOLA NOGOMETA ===== */
+.academy{background:var(--white);position:relative;overflow:hidden;padding:0}
+.acad-inner{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.acad-img{position:relative;overflow:hidden;max-height:760px}
+.acad-img img{width:100%;height:100%;object-fit:cover}
+.acad-img-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,36,40,.8) 0%,rgba(27,42,74,.9) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px}
+.acad-img-ov .acad-big-num{font-family:var(--fh);font-size:6rem;font-weight:900;color:rgba(255,255,255,.15);line-height:1}
+.acad-img-ov .acad-big-lbl{font-family:var(--fb);font-size:.65rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.2em;margin-top:4px}
+.acad-img-ov .acad-logo{width:80px;height:80px;margin-top:32px;opacity:.3}
+.acad-img-ov .acad-logo img{width:100%;height:100%;object-fit:contain}
+.acad-content{background:var(--light);padding:36px 48px;display:flex;flex-direction:column;justify-content:center}
+.acad-content .sl{font-family:var(--fb);font-size:.65rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.2em;margin-bottom:12px}
+.acad-content h2{font-family:var(--fh);font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--td);margin-bottom:16px;line-height:1.05}
+.acad-content p{color:var(--td2);line-height:1.8;margin-bottom:14px;font-size:.92rem}
+.acad-age-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0 28px}
+.acad-age{padding:14px 12px;background:var(--white);border:1px solid var(--bl);border-radius:10px;text-align:center;transition:all .3s;cursor:pointer}
+.acad-age:hover{border-color:var(--red);transform:translateY(-3px);box-shadow:0 8px 24px rgba(212,36,40,.08)}
+.acad-age .age-name{font-family:var(--fh);font-size:.95rem;font-weight:700;color:var(--td);letter-spacing:.04em}
+.acad-age .age-count{font-family:var(--fb);font-size:.62rem;color:var(--td3);font-weight:500;margin-top:2px}
+.hero-btn-red{display:inline-flex;align-items:center;gap:10px;padding:16px 40px;background:var(--red);border:none;color:#fff;font-family:var(--fh);font-size:1rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:4px;transition:all .3s;cursor:pointer;text-decoration:none}
+.hero-btn-red:hover{background:var(--td);transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.15)}
+@media(max-width:900px){.acad-inner{grid-template-columns:1fr}.acad-img{min-height:300px}.acad-content{padding:40px 24px}.acad-age-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ===== CTA ===== */
+.cta-bar{background:linear-gradient(135deg,var(--red-d),var(--red));padding:60px 0;position:relative;overflow:hidden}
+.cta-bar::before{content:'POLET';position:absolute;font-family:var(--fh);font-size:14rem;font-weight:900;color:rgba(255,255,255,.04);right:-30px;top:50%;transform:translateY(-50%);white-space:nowrap}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-inner h2{font-family:var(--fh);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#fff}
+.cta-inner p{color:rgba(255,255,255,.55);max-width:400px;font-size:.9rem}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-w{padding:16px 40px;background:#fff;color:var(--red);font-family:var(--fh);font-size:1rem;font-weight:700;letter-spacing:.08em;border:none;border-radius:4px;cursor:pointer;transition:all .3s;text-decoration:none;text-transform:uppercase}
+.btn-w:hover{background:var(--dark);color:#fff;transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.2)}
+.btn-wo{padding:16px 40px;background:transparent;color:#fff;font-family:var(--fh);font-size:1rem;font-weight:700;letter-spacing:.08em;border:1.5px solid rgba(255,255,255,.3);border-radius:4px;cursor:pointer;transition:all .3s;text-decoration:none;text-transform:uppercase}
+.btn-wo:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.5)}
+@media(max-width:768px){.cta-inner{flex-direction:column;text-align:center}}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--blue-d);padding:60px 0 24px}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.06)}
+.foot-brand .fbl{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.foot-brand .fbc{width:40px;height:40px}.foot-brand .fbc img{width:100%;height:100%;object-fit:contain}
+.foot-brand .fbn{font-family:var(--fh);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:.06em}
+.foot-brand p{color:var(--td3);font-size:.78rem;line-height:1.7;max-width:260px}
+.foot-col h4{font-family:var(--fb);font-size:.6rem;font-weight:700;color:var(--td3);text-transform:uppercase;letter-spacing:.15em;margin-bottom:16px}
+.foot-col ul{list-style:none}.foot-col li{margin-bottom:10px}
+.foot-col a{color:rgba(255,255,255,.45);font-size:.78rem;transition:color .3s}.foot-col a:hover{color:var(--red-l)}
+.fb{display:flex;justify-content:space-between;align-items:center;padding-top:20px;flex-wrap:wrap;gap:12px}
+.fb p{font-size:.62rem;color:var(--td3)}
+.fs{display:flex;gap:8px}
+.fsa{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:var(--td3);transition:all .3s}
+.fsa:hover{background:var(--red);border-color:var(--red);color:#fff}
+@media(max-width:768px){.ft{grid-template-columns:1fr 1fr}}
+.gs{opacity:0;transform:translateY(50px)}.gsl{opacity:0;transform:translateX(-50px)}.gss{opacity:0;transform:scale(.92)}
+</style>
+</head>
+<body>
+
+<div id="preloader"><img src="Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png" alt="" class="plogo"><div class="bar"><i></i></div><div class="ptxt">NK Polet Sveta Klara</div></div>
+
+<nav class="nav" id="nav"><div class="ni">
+<div class="nav-left">
+<a href="#" class="nav-brand"><div class="nav-crest"><img src="Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png" alt="NK Polet"></div><div class="nav-name">NK POLET</div></a>
+<ul class="nav-links" id="navLinks"><li><a href="#squad" onclick="closeMenu()">Momčad</a></li><li><a href="#fixtures" onclick="closeMenu()">Rezultati</a></li><li><a href="onama.html">O Klubu</a></li><li><a href="skolanogometa.html">Mlađe kategorije</a></li><li><a href="#stadium" onclick="closeMenu()">Stadion</a></li><li><a href="#contact" onclick="closeMenu()">Kontakt</a></li></ul>
+</div>
+<div class="nav-right">
+<div class="nav-social"><a href="https://www.facebook.com/nkpoletsvetaklara1948/" target="_blank" rel="noopener"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></div>
+<button class="nav-toggle" id="navToggle" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</div></div></nav>
+
+<!-- HERO 100vh -->
+<section class="hero">
+<div class="hero-slides"><div class="hero-slide active"><img src="https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=1920&q=85" alt=""></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1920&q=85" alt=""></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1920&q=85" alt=""></div></div>
+<div class="hero-ov"></div>
+<div class="hero-crest"><img src="Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png" alt=""></div>
+<div class="hero-content">
+<div class="hero-tag">Sezona 2025/26</div>
+<h1 class="hero-title">NK <span class="thin">POLET</span><br>SVETA KLARA</h1>
+<p class="hero-desc">Više od 75 godina nogometne tradicije, zajedništva i strasti u srcu Novog Zagreba. Osnovano 1948.</p>
+<a href="#squad" class="hero-btn">Upoznaj momčad <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
+<div class="hero-scroll"><span>Skrolaj</span><div class="line"></div></div>
+<div class="hero-pager"><div class="hero-dot active" data-slide="0"></div><div class="hero-dot" data-slide="1"></div><div class="hero-dot" data-slide="2"></div></div>
+</section>
+
+<!-- NEWS -->
+<section class="news">
+<div class="container">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px"><h2 class="sec-title gs">Najnovije vijesti</h2></div>
+<div class="news-scroll" id="newsScroll">
+<a href="zelengaj-remi.html" class="nc gs"><img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=600&q=80" alt=""><div class="nc-ov"><div class="cat">Izvještaj</div><h3>Polet remizirao s Zelengajem u uzbudljivoj utakmici</h3><div class="nc-btn">Pročitaj članak</div></div></a>
+<a href="pobjeda-spansko.html" class="nc gs"><img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=600&q=80" alt=""><div class="nc-ov"><div class="cat">Rezultat</div><h3>Uvjerljiva pobjeda nad Španskim — Gotovac s dva pogotka</h3><div class="nc-btn">Pročitaj članak</div></div></a>
+<a href="infrastruktura.html" class="nc gs"><img src="https://images.unsplash.com/photo-1600679472829-3044539ce8ed?w=600&q=80" alt=""><div class="nc-ov"><div class="cat">Klub</div><h3>Sportski centar Polet s novim poboljšanjima</h3><div class="nc-btn">Pročitaj članak</div></div></a>
+<a href="najava-ilovac.html" class="nc gs"><img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=600&q=80" alt=""><div class="nc-ov"><div class="cat">Najava</div><h3>Gostovanje kod Ilovca — najava 19. kola</h3><div class="nc-btn">Pročitaj članak</div></div></a>
+<a href="intervju-skrinjaric.html" class="nc gs"><img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?w=600&q=80" alt=""><div class="nc-ov"><div class="cat">Intervju</div><h3>Trener Jurić: "Cilj je gornja polovica tablice"</h3><div class="nc-btn">Pročitaj članak</div></div></a>
+<a href="mladi-igraci.html" class="nc gs"><img src="https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=600&q=80" alt=""><div class="nc-ov"><div class="cat">Akademija</div><h3>Mladi igrači — budućnost kluba</h3><div class="nc-btn">Pročitaj članak</div></div></a>
+</div>
+<div class="news-bot">
+<div class="news-arrows"><button onclick="scrollN(-1)"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button><button onclick="scrollN(1)"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button></div>
+<a href="vijesti.html" class="news-all">Sve vijesti <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
+</div>
+</section>
+
+<!-- FIXTURES & TABLE -->
+<section class="fixtures sec" id="fixtures">
+<div class="container">
+<h2 class="sec-title gs" style="color:var(--td);margin-bottom:32px">Rezultati & Tablica</h2>
+<div class="fix-grid">
+<div class="fix-list">
+<div class="fix-card w gs"><div class="fix-team"><div class="fix-badge"><img src="Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png" alt=""></div><div class="fix-tname">NK Polet</div></div><div class="fix-center"><div class="fix-score">6 — 2</div><div class="fix-date">22.11.2025</div></div><div class="fix-team right"><div class="fix-tname">NK Zagreb</div><div class="fix-badge opp">Z</div></div></div>
+<div class="fix-card w gs"><div class="fix-team"><div class="fix-badge"><img src="Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png" alt=""></div><div class="fix-tname">NK Polet</div></div><div class="fix-center"><div class="fix-score">3 — 2</div><div class="fix-date">29.11.2025</div></div><div class="fix-team right"><div class="fix-tname">NK Sesv. Kraljevec</div><div class="fix-badge opp">S</div></div></div>
+<div class="fix-card w gs"><div class="fix-team"><div class="fix-badge"><img src="Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png" alt=""></div><div class="fix-tname">NK Polet</div></div><div class="fix-center"><div class="fix-score">3 — 1</div><div class="fix-date">14.03.2026</div></div><div class="fix-team right"><div class="fix-tname">NK Špansko</div><div class="fix-badge opp">Š</div></div></div>
+<div class="fix-card d gs"><div class="fix-team"><div class="fix-badge"><img src="Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png" alt=""></div><div class="fix-tname">NK Polet</div></div><div class="fix-center"><div class="fix-score">1 — 1</div><div class="fix-date">21.03.2026</div></div><div class="fix-team right"><div class="fix-tname">NK Zelengaj 1948</div><div class="fix-badge opp">Z</div></div></div>
+<div class="fix-card next gs"><div class="fix-team"><div class="fix-badge opp">I</div><div class="fix-tname">NK Ilovac</div></div><div class="fix-center"><div class="fix-vs">VS</div><div class="fix-date">28.03.2026 • 16:00</div></div><div class="fix-team right"><div class="fix-tname">NK Polet</div><div class="fix-badge"><img src="Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png" alt=""></div></div></div>
+</div>
+<div class="tcard gs">
+<div class="tcard-h"><img src="Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png" alt="">4. NL Središte Zagreb — Skupina A</div>
+<div class="tbl-scroll"><table class="tbl"><thead><tr><th>#</th><th>Klub</th><th>UT</th><th>P</th><th>N</th><th>I</th><th>G+</th><th>G-</th><th>GR</th><th>Bod</th></tr></thead><tbody>
+<tr><td class="pos">1</td><td class="team">NK Zagreb City</td><td class="num">19</td><td class="num">15</td><td class="num">2</td><td class="num">2</td><td class="num">43</td><td class="num">14</td><td class="num">+29</td><td class="pts">47</td></tr>
+<tr><td class="pos">2</td><td class="team">NK Mladost Zabok</td><td class="num">19</td><td class="num">14</td><td class="num">3</td><td class="num">2</td><td class="num">48</td><td class="num">22</td><td class="num">+26</td><td class="pts">45</td></tr>
+<tr><td class="pos">3</td><td class="team">NK Rudar (DZ)</td><td class="num">19</td><td class="num">10</td><td class="num">3</td><td class="num">6</td><td class="num">35</td><td class="num">22</td><td class="num">+13</td><td class="pts">33</td></tr>
+<tr class="hl"><td class="pos">4</td><td class="team">NK Polet (SK)</td><td class="num">19</td><td class="num">10</td><td class="num">3</td><td class="num">6</td><td class="num">43</td><td class="num">35</td><td class="num">+8</td><td class="pts">33</td></tr>
+<tr><td class="pos">5</td><td class="team">NK Golubovec</td><td class="num">18</td><td class="num">8</td><td class="num">6</td><td class="num">4</td><td class="num">31</td><td class="num">24</td><td class="num">+7</td><td class="pts">30</td></tr>
+<tr><td class="pos">6</td><td class="team">NK Zelengaj 1948</td><td class="num">19</td><td class="num">8</td><td class="num">6</td><td class="num">5</td><td class="num">27</td><td class="num">21</td><td class="num">+6</td><td class="pts">30</td></tr>
+<tr><td class="pos">7</td><td class="team">NK Klanjec</td><td class="num">19</td><td class="num">8</td><td class="num">2</td><td class="num">9</td><td class="num">32</td><td class="num">30</td><td class="num">+2</td><td class="pts">26</td></tr>
+<tr><td class="pos">8</td><td class="team">NK Sesv. Kraljevec</td><td class="num">19</td><td class="num">7</td><td class="num">5</td><td class="num">7</td><td class="num">32</td><td class="num">31</td><td class="num">+1</td><td class="pts">26</td></tr>
+<tr><td class="pos">9</td><td class="team">NK Jedinstvo (SKZ)</td><td class="num">19</td><td class="num">7</td><td class="num">5</td><td class="num">7</td><td class="num">31</td><td class="num">33</td><td class="num">-2</td><td class="pts">26</td></tr>
+<tr><td class="pos">10</td><td class="team">NK Bedekovčina</td><td class="num">19</td><td class="num">6</td><td class="num">7</td><td class="num">6</td><td class="num">27</td><td class="num">26</td><td class="num">+1</td><td class="pts">25</td></tr>
+<tr><td class="pos">11</td><td class="team">NK Špansko</td><td class="num">18</td><td class="num">7</td><td class="num">3</td><td class="num">8</td><td class="num">23</td><td class="num">21</td><td class="num">+2</td><td class="pts">24</td></tr>
+<tr><td class="pos">12</td><td class="team">NK Vojnić 95</td><td class="num">18</td><td class="num">5</td><td class="num">6</td><td class="num">7</td><td class="num">23</td><td class="num">23</td><td class="num">0</td><td class="pts">21</td></tr>
+<tr><td class="pos">13</td><td class="team">NK Ilovac</td><td class="num">19</td><td class="num">5</td><td class="num">4</td><td class="num">10</td><td class="num">20</td><td class="num">36</td><td class="num">-16</td><td class="pts">19</td></tr>
+<tr><td class="pos">14</td><td class="team">NK Odra</td><td class="num">18</td><td class="num">4</td><td class="num">4</td><td class="num">10</td><td class="num">17</td><td class="num">30</td><td class="num">-13</td><td class="pts">16</td></tr>
+<tr><td class="pos">15</td><td class="team">NK Zagreb</td><td class="num">19</td><td class="num">3</td><td class="num">4</td><td class="num">12</td><td class="num">16</td><td class="num">31</td><td class="num">-15</td><td class="pts">13</td></tr>
+<tr><td class="pos">16</td><td class="team">NK Ogulin</td><td class="num">19</td><td class="num">0</td><td class="num">3</td><td class="num">16</td><td class="num">12</td><td class="num">61</td><td class="num">-49</td><td class="pts">3</td></tr>
+</tbody></table></div>
+</div>
+</div>
+</section>
+
+<!-- SQUAD -->
+<section class="squad" id="squad">
+<div class="container"><div class="squad-title-wrap"><h2 class="squad-title gs">MOMČAD</h2><div class="sec-sub gs">Sezona 2025/26</div></div></div>
+<div class="player-thumbs-wrap">
+<button class="tn left" onclick="scrollT(-1)"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+<div class="player-thumbs" id="pThumbs"></div>
+<button class="tn right" onclick="scrollT(1)"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+</div>
+<div class="pd" id="pDetail"></div>
+</section>
+
+<!-- SCORERS -->
+<section class="scorers sec net-bg" id="scorers">
+<div class="container" style="position:relative;z-index:1">
+<div class="pitch-divider light"><div class="cm"></div></div>
+<h2 class="sec-title gs" style="color:#fff;margin-bottom:48px">Najbolji strijelci</h2>
+<div class="scorers-grid">
+<div class="sc-hero gss">
+<div class="sc-hero-img"><div class="sc-hero-glow"></div><div class="sc-hero-num">10</div><img src="IgraciTransparent/TomislavGotovac.png" alt="Gotovac"></div>
+<div class="sc-hero-info"><div class="crown">Najbolji strijelac</div><h3>Tomislav Gotovac</h3><div class="goals-big">10</div><div class="goals-lbl">Golova ove sezone</div></div>
+</div>
+<div class="sc-bars">
+<div class="sc-bar-item gs" data-goals="10" data-max="10"><div class="sc-ava"><img src="IgraciTransparent/TomislavGotovac.png" alt=""></div><div class="sc-bar-wrap"><div class="sc-bar-name">T. Gotovac</div><div class="sc-bar-track"><div class="sc-bar-fill r1"></div></div></div><div class="sc-goals">10</div></div>
+<div class="sc-bar-item gs" data-goals="9" data-max="10"><div class="sc-ava"><img src="IgraciTransparent/StipeJurilj.png" alt=""></div><div class="sc-bar-wrap"><div class="sc-bar-name">S. Jurilj</div><div class="sc-bar-track"><div class="sc-bar-fill r2"></div></div></div><div class="sc-goals">9</div></div>
+<div class="sc-bar-item gs" data-goals="7" data-max="10"><div class="sc-ava"><img src="IgraciTransparent/RobertoBadanjak.png" alt=""></div><div class="sc-bar-wrap"><div class="sc-bar-name">R. Badanjak</div><div class="sc-bar-track"><div class="sc-bar-fill r3"></div></div></div><div class="sc-goals">7</div></div>
+<div class="sc-bar-item gs" data-goals="4" data-max="10"><div class="sc-ava"><img src="IgraciTransparent/IvanHercigonja.png" alt=""></div><div class="sc-bar-wrap"><div class="sc-bar-name">I. Hercigonja</div><div class="sc-bar-track"><div class="sc-bar-fill r4"></div></div></div><div class="sc-goals">4</div></div>
+<div class="sc-bar-item gs" data-goals="2" data-max="10"><div class="sc-ava"><img src="IgraciTransparent/IvanTelebar.png" alt=""></div><div class="sc-bar-wrap"><div class="sc-bar-name">I. Telebar</div><div class="sc-bar-track"><div class="sc-bar-fill r1"></div></div></div><div class="sc-goals">2</div></div>
+<div class="sc-bar-item gs" data-goals="2" data-max="10"><div class="sc-ava"><img src="IgraciTransparent/IvanBogdanovic.png" alt=""></div><div class="sc-bar-wrap"><div class="sc-bar-name">I. Bogdanović</div><div class="sc-bar-track"><div class="sc-bar-fill r2"></div></div></div><div class="sc-goals">2</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ŠKOLA NOGOMETA -->
+<section class="academy" id="academy">
+<div class="acad-inner">
+<div class="acad-img gsl">
+<img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=800&q=80" alt="Mladi igrači">
+<div class="acad-img-ov">
+<div class="acad-big-num gs">140+</div>
+<div class="acad-big-lbl gs">Mladih igrača</div>
+<div style="display:flex;gap:24px;margin-top:32px">
+<div><div class="acad-big-num" style="font-size:3rem">8</div><div class="acad-big-lbl">Kategorija</div></div>
+<div><div class="acad-big-num" style="font-size:3rem">78</div><div class="acad-big-lbl">Godina</div></div>
+</div>
+<div class="acad-logo"><img src="Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png" alt=""></div>
+</div>
+</div>
+<div class="acad-content">
+<div class="sl gs">Škola nogometa</div>
+<h2 class="gs">Odgajamo buduće prvake</h2>
+<p class="gs">Škola nogometa NK Poleta okuplja mlade igrače svih uzrasta — od zagića i limača do pionira, kadeta i juniora. Naš stručni trenerski tim pruža profesionalan pristup razvoju tehničkih vještina, taktičke inteligencije i sportskog duha.</p>
+<p class="gs">Kroz natjecanja u okviru Zagrebačkog nogometnog saveza, naši mladi igrači stječu dragocjeno iskustvo i grade temelje za buduću nogometnu karijeru.</p>
+<div class="acad-age-grid gs">
+<div class="acad-age"><div class="age-name">Zagići</div><div class="age-count">2 momčadi</div></div>
+<div class="acad-age"><div class="age-name">Limači</div><div class="age-count">2 momčadi</div></div>
+<div class="acad-age"><div class="age-name">Mlađi pioniri</div><div class="age-count">25 igrača</div></div>
+<div class="acad-age"><div class="age-name">Pioniri</div><div class="age-count">19 igrača</div></div>
+<div class="acad-age"><div class="age-name">Kadeti</div><div class="age-count">24 igrača</div></div>
+<div class="acad-age"><div class="age-name">Juniori</div><div class="age-count">24 igrača</div></div>
+</div>
+<a href="skolanogometa.html" class="hero-btn-red gs">Saznaj više <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
+</div>
+</section>
+
+<!-- NAŠA PRIČA -->
+<section class="story sec" id="story">
+<div class="story-grid" style="max-width:1320px;margin:0 auto;padding:0 48px">
+<div class="story-text">
+<div class="sl gs">Naša priča</div>
+<h2 class="gs">Više od 75 godina tradicije i zajedništva</h2>
+<p class="gs">Nogometni klub Polet Sveta Klara osnovan je 1948. godine u srcu zagrebačke četvrti Sveta Klara. Kroz više od sedam desetljeća klub je izrastao u jedan od najcjenjenijih amaterskih klubova u gradu.</p>
+<p class="gs">S više od 200 aktivnih članova i obitelji, Polet nije samo klub — to je zajednica koja živi za nogomet. Naša misija je razvoj mladih igrača i izgradnja budućnosti nogometa u Novom Zagrebu.</p>
+<a href="onama.html" class="hero-btn" style="margin-top:24px;display:inline-flex">Saznaj više <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+<div class="story-stats gs">
+<div class="story-stat"><div class="v">1948</div><div class="l">Osnovano</div></div>
+<div class="story-stat"><div class="v">200+</div><div class="l">Članova</div></div>
+<div class="story-stat"><div class="v">4.</div><div class="l">Pozicija</div></div>
+<div class="story-stat"><div class="v">43</div><div class="l">Gola</div></div>
+</div>
+</div>
+<div class="field-wrap gss">
+<div class="field-badge"><img src="Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png" alt=""></div>
+<svg class="field-svg" viewBox="0 0 460 300">
+<rect class="ff" x="10" y="10" width="440" height="280" rx="4"/>
+<rect class="fl" x="10" y="10" width="440" height="280" rx="4"/>
+<line class="fl" x1="230" y1="10" x2="230" y2="290"/>
+<circle class="fc" cx="230" cy="150" r="50"/>
+<circle cx="230" cy="150" r="3" fill="rgba(255,255,255,.25)"/>
+<rect class="fl" x="10" y="75" width="80" height="150"/>
+<rect class="fl" x="10" y="110" width="35" height="80"/>
+<rect class="fl" x="370" y="75" width="80" height="150"/>
+<rect class="fl" x="415" y="110" width="35" height="80"/>
+<circle class="fd" cx="62" cy="150" r="3"/><circle class="fd" cx="150" cy="80" r="3"/><circle class="fd" cx="150" cy="220" r="3"/><circle class="fd" cx="180" cy="150" r="3"/><circle class="fd" cx="280" cy="100" r="3"/><circle class="fd" cx="280" cy="200" r="3"/><circle class="fd" cx="320" cy="150" r="3"/><circle class="fd" cx="350" cy="90" r="3"/><circle class="fd" cx="350" cy="210" r="3"/><circle class="fd" cx="400" cy="150" r="3"/>
+<circle class="ball" cx="120" cy="90" r="6"/>
+</svg>
+</div>
+</div></div>
+</section>
+
+<!-- STADIUM -->
+<section class="stadium sec" id="stadium">
+<div class="container">
+<div class="pitch-divider"><div class="cm"></div></div>
+<h2 class="sec-title gs" style="color:var(--td);margin-bottom:32px">Stadion</h2>
+<div class="stad-wrap gss">
+<div class="stad-img"><img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1400&q=80" alt=""><div class="stad-img-ov"><h3>Sportski centar Polet</h3><p>M. Mrksina 67a, 10020 Novi Zagreb — Sveta Klara</p></div></div>
+<div class="stad-info">
+<div class="stad-item"><div class="stad-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18M12 3v18"/></svg></div><div><h4>Veliki teren</h4><p>100 x 60m, prirodna trava za službene utakmice</p></div></div>
+<div class="stad-item"><div class="stad-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div><h4>Mali teren</h4><p>40 x 20m, umjetna trava, reflektori, 07-24h</p></div></div>
+<div class="stad-item"><div class="stad-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><h4>4 Svlačionice</h4><p>Za domaće i gostujuće ekipe</p></div></div>
+<div class="stad-item"><div class="stad-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div><h4>Ugostiteljstvo</h4><p>Terasa, kuhinja, prostor za događanja</p></div></div>
+<div class="stad-item"><div class="stad-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0020 0h-3"/></svg></div><div><h4>Padel Novi Zagreb</h4><p>Moderan padel centar s profesionalnim terenima — dio sportskog kompleksa Polet</p></div></div>
+<div class="stad-contact">
+<a href="tel:+38516119405"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>01/611-9405</a>
+<a href="mailto:polet.svetaklara@gmail.com"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta-bar" id="contact"><div class="container"><div class="cta-inner">
+<div><h2>Postani dio naše priče</h2><p>Pridruži se obitelji NK Poleta kao igrač, navijač ili sponzor.</p></div>
+<div class="cta-btns"><a href="mailto:polet.svetaklara@gmail.com" class="btn-w">Kontaktiraj nas</a><a href="https://www.facebook.com/nkpoletsvetaklara1948/" target="_blank" rel="noopener" class="btn-wo">Facebook</a></div>
+</div></div></section>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="container">
+<div class="ft">
+<div class="foot-brand"><div class="fbl"><div class="fbc"><img src="Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png" alt=""></div><div class="fbn">NK POLET SVETA KLARA</div></div><p>Nogometni klub osnovan 1948. godine u Svetoj Klari, Novi Zagreb. Više od 75 godina tradicije.</p></div>
+<div class="foot-col"><h4>Klub</h4><ul><li><a href="#squad">Momčad</a></li><li><a href="#fixtures">Rezultati</a></li><li><a href="#story">O klubu</a></li><li><a href="#stadium">Stadion</a></li></ul></div>
+<div class="foot-col"><h4>Kontakt</h4><ul><li><a href="tel:+38516119405">01 / 611 9405</a></li><li><a href="tel:+38598418989">098 / 418 989</a></li><li><a href="mailto:polet.svetaklara@gmail.com">polet.svetaklara@gmail.com</a></li></ul></div>
+<div class="foot-col"><h4>Uprava</h4><ul><li><a href="#" style="display:flex;align-items:center;gap:8px"><img src="UpravaSlike/GoranRukavina.jpg" alt="" style="width:28px;height:28px;border-radius:50%;object-fit:cover">Goran Rukavina</a></li><li><a href="#" style="display:flex;align-items:center;gap:8px"><img src="UpravaSlike/IvoOrkic.png" alt="" style="width:28px;height:28px;border-radius:50%;object-fit:cover">Ivo Orkić</a></li><li><a href="#">Marko Rukavina</a></li></ul></div>
+</div>
+<div class="fb"><p>&copy; 2026 NK Polet Sveta Klara. Sva prava pridržana.</p><div class="fs"><a href="https://www.facebook.com/nkpoletsvetaklara1948/" target="_blank" rel="noopener" class="fsa"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></div></div>
+</div></footer>
+
+<script>
+const LOGO='Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png',IMG='IgraciTransparent/';
+// HNS Semafor podatci — sezona 2025/26
+const players=[
+{name:"Patrik Prša",pos:"Vratar",num:1,img:IMG+"PatrikPrsa.png",nat:"Hrvatska",apps:19,goals:0,mins:1710,yc:1,rc:0},
+{name:"Luka Malešević",pos:"Vratar",num:12,img:IMG+"LukaMalesevic.png",nat:"Hrvatska",apps:0,goals:0,mins:0,yc:0,rc:0},
+{name:"Marin Križić",pos:"Branič",num:2,img:IMG+"MarinKrizic.png",nat:"Hrvatska",apps:17,goals:0,mins:1496,yc:2,rc:0},
+{name:"Filip Vojnović",pos:"Branič",num:3,img:IMG+"FilipVojnovic.png",nat:"Hrvatska",apps:19,goals:0,mins:1657,yc:4,rc:0},
+{name:"Noa Poljak",pos:"Branič",num:4,img:IMG+"NoaPoljak.png",nat:"Hrvatska",apps:4,goals:1,mins:195,yc:0,rc:0},
+{name:"Mihael Perić",pos:"Branič",num:5,img:IMG+"MihaelPeric.png",nat:"Hrvatska",apps:16,goals:0,mins:1290,yc:2,rc:0},
+{name:"Ivan Bogdanović",pos:"Veznjak",num:6,img:IMG+"IvanBogdanovic.png",nat:"Hrvatska",apps:14,goals:2,mins:1146,yc:3,rc:0},
+{name:"Matej Nekić",pos:"Veznjak",num:6,img:IMG+"MatejNekic.png",nat:"Hrvatska",apps:9,goals:0,mins:765,yc:1,rc:0},
+{name:"Renato Dolić",pos:"Veznjak",num:7,img:IMG+"RenatoDolic.png",nat:"Hrvatska",apps:9,goals:1,mins:712,yc:3,rc:0},
+{name:"Luka Gorše",pos:"Veznjak",num:8,img:IMG+"LukaGorse.png",nat:"Hrvatska",apps:14,goals:1,mins:1156,yc:5,rc:0},
+{name:"Marko Pavičić",pos:"Veznjak",num:16,img:IMG+"MarkoPavicic.png",nat:"Hrvatska",apps:16,goals:0,mins:938,yc:1,rc:0},
+{name:"Antonio Kolar",pos:"Veznjak",num:18,img:IMG+"AntonioKolar.png",nat:"Hrvatska",apps:3,goals:0,mins:50,yc:0,rc:0},
+{name:"Roberto Badanjak",pos:"Napadač",num:9,img:IMG+"RobertoBadanjak.png",nat:"Hrvatska",apps:17,goals:7,mins:1466,yc:4,rc:0},
+{name:"Tomislav Gotovac",pos:"Napadač",num:10,img:IMG+"TomislavGotovac.png",nat:"Hrvatska",apps:18,goals:10,mins:1361,yc:5,rc:0},
+{name:"Ivan Telebar",pos:"Napadač",num:11,img:IMG+"IvanTelebar.png",nat:"Hrvatska",apps:18,goals:2,mins:1142,yc:0,rc:0},
+{name:"Ivan Hercigonja",pos:"Napadač",num:14,img:IMG+"IvanHercigonja.png",nat:"Hrvatska",apps:16,goals:4,mins:505,yc:0,rc:0},
+{name:"Filip Soplanda",pos:"Napadač",num:14,img:IMG+"FilipSoplanda2.png",nat:"Hrvatska",apps:3,goals:1,mins:22,yc:0,rc:0},
+{name:"Rudi Hoić",pos:"Napadač",num:15,img:IMG+"RudiHoic.png",nat:"Hrvatska",apps:4,goals:0,mins:203,yc:0,rc:0},
+{name:"Stipe Jurilj",pos:"Napadač",num:17,img:IMG+"StipeJurilj.png",nat:"Hrvatska",apps:19,goals:9,mins:1329,yc:4,rc:0},
+];
+let aP=0;
+function buildT(){document.getElementById('pThumbs').innerHTML=players.map((p,i)=>`<div class="pt ${i===0?'active':''}" onclick="selP(${i})"><div class="pt-c"><img src="${p.img}" alt="${p.name}"></div><div class="pt-n">${p.name.split(' ').pop()}</div></div>`).join('')}
+function selP(i){aP=i;const p=players[i];document.querySelectorAll('.pt').forEach((t,j)=>t.classList.toggle('active',j===i));
+const th=document.querySelectorAll('.pt')[i];if(th)th.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+const d=document.getElementById('pDetail');
+d.innerHTML=`<div class="pd-vis"><div class="pd-glow"></div><img src="${p.img}" alt="${p.name}"><div class="pd-bgn">${p.num}</div></div>
+<div class="pd-info"><div class="pd-num">${p.num}</div><div class="pd-pos">${p.pos}</div>
+<h2 class="pd-name">${p.name.split(' ').slice(0,-1).join(' ')}<br>${p.name.split(' ').pop()}</h2>
+<div class="pd-stats"><div class="pd-stat"><div class="val">${p.apps}</div><div class="lbl">Utakmice</div></div><div class="pd-stat"><div class="val">${p.goals}</div><div class="lbl">Golovi</div></div><div class="pd-stat"><div class="val">${p.mins}<span class="u">'</span></div><div class="lbl">Minute</div></div><div class="pd-stat"><div class="val">${p.yc}</div><div class="lbl">Žuti kartoni</div></div></div>
+<div class="pd-meta"><div class="pd-mi"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>${p.nat}</div><div class="pd-mi"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>${p.age} god.</div><div class="pd-mi"><img src="${LOGO}" alt="">NK Polet • 2025/26</div></div></div>`;
+gsap.from(d.querySelector('.pd-vis img'),{scale:.85,opacity:0,duration:.7,ease:'power3.out'});
+gsap.from(d.querySelector('.pd-bgn'),{x:80,opacity:0,duration:.8,ease:'power3.out',delay:.1});
+gsap.from(d.querySelector('.pd-info'),{x:40,opacity:0,duration:.6,ease:'power3.out',delay:.15})}
+function scrollT(d){document.getElementById('pThumbs').scrollBy({left:d*300,behavior:'smooth'})}
+function scrollN(d){document.getElementById('newsScroll').scrollBy({left:d*310,behavior:'smooth'})}
+// Hero
+let hI=0;function showS(i){const s=document.querySelectorAll('.hero-slide'),d=document.querySelectorAll('.hero-dot'),l=s.length;hI=((i%l)+l)%l;s.forEach((x,j)=>x.classList.toggle('active',j===hI));d.forEach((x,j)=>x.classList.toggle('active',j===hI))}
+function heroSlide(dir){showS(hI+dir)}
+document.querySelectorAll('.hero-dot').forEach(d=>d.addEventListener('click',()=>showS(+d.dataset.slide)));
+setInterval(()=>heroSlide(1),6000);
+// Nav
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60));
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');document.getElementById('navToggle').classList.toggle('active')}
+function closeMenu(){document.getElementById('navLinks').classList.remove('open');document.getElementById('navToggle').classList.remove('active')}
+document.getElementById('navLinks').addEventListener('click',function(e){if(e.target===this)closeMenu()});
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});closeMenu()})});
+// Scorers bar animation
+function animBars(){const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const el=e.target,g=el.dataset.goals,m=el.dataset.max;el.querySelector('.sc-bar-fill').style.width=(g/m*100)+'%';obs.unobserve(el)}})},{threshold:.3});document.querySelectorAll('.sc-bar-item').forEach(r=>obs.observe(r))}
+// GSAP
+function initG(){gsap.registerPlugin(ScrollTrigger);
+gsap.utils.toArray('.gs').forEach(el=>{gsap.fromTo(el,{opacity:0,y:50},{opacity:1,y:0,duration:.8,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%'}})});
+gsap.utils.toArray('.gsl').forEach(el=>{gsap.fromTo(el,{opacity:0,x:-50},{opacity:1,x:0,duration:.8,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%'}})});
+gsap.utils.toArray('.gss').forEach(el=>{gsap.fromTo(el,{opacity:0,scale:.92},{opacity:1,scale:1,duration:.8,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%'}})})}
+// Scroll table to Polet row on load
+setTimeout(()=>{const ts=document.querySelector('.tbl-scroll');const hl=document.querySelector('.tbl tr.hl');if(ts&&hl){ts.scrollTop=hl.offsetTop-ts.offsetHeight/2+hl.offsetHeight/2}},2500);
+window.addEventListener('load',()=>{buildT();selP(0);animBars();setTimeout(()=>{document.getElementById('preloader').classList.add('hide');setTimeout(()=>document.getElementById('preloader').remove(),700)},2000);setTimeout(initG,100)});
+</script>
+</body>
+</html>
