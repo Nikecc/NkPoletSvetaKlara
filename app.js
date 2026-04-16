@@ -11,6 +11,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Main pages
 app.get('/', (req, res) => res.render('pages/index', { currentPage: 'home' }));
+app.get('/seniori', (req, res) => res.render('pages/seniori', { currentPage: 'seniori' }));
 app.get('/onama', (req, res) => res.render('pages/onama', { currentPage: 'onama' }));
 app.get('/skolanogometa', (req, res) => res.render('pages/skolanogometa', { currentPage: 'skola' }));
 app.get('/vijesti', (req, res) => res.render('pages/vijesti', { currentPage: 'vijesti' }));
