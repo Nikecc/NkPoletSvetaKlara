@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fizioterapija Restart — NK Polet Sveta Klara</title>
+<meta name="description" content="Centar za fizioterapiju i rehabilitaciju Restart — partner NK Poleta. Besplatan pregled i terapija za igrače, 20% popusta za roditelje.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--blue:#1B2A4A;--blue-l:#2C4470;--blue-d:#0F1A30;
+--red:#D42428;--red-l:#E84E52;--red-d:#A01C1F;
+--dark:#0B0F18;--dark-2:#111827;--dark-3:#1A2233;--dark-4:#212B3E;
+--light:#F7F7F8;--light-2:#EEEEF0;--cream:#FAFAF9;--white:#FFF;
+--td:#1A1A2E;--td2:#4A5568;--td3:#717D8F;
+--border:rgba(255,255,255,.06);--bl:rgba(0,0,0,.06);
+--r:12px;
+--fh:'Barlow Condensed',sans-serif;--fb:'Inter',sans-serif;--fm:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--fb);background:var(--light);color:var(--td);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5{font-family:var(--fh);text-transform:uppercase;letter-spacing:.02em}
+.container{max-width:1320px;margin:0 auto;padding:0 48px}
+@media(max-width:768px){.container{padding:0 20px}}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+
+/* ===== PRELOADER ===== */
+#preloader{position:fixed;inset:0;z-index:99999;background:var(--dark);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s,visibility .6s}
+#preloader.hide{opacity:0;visibility:hidden}
+#preloader .plogo{width:100px;animation:pp 1.5s ease-in-out infinite}
+@keyframes pp{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+#preloader .bar{width:120px;height:2px;background:var(--dark-3);border-radius:2px;margin-top:24px;overflow:hidden}
+#preloader .bar i{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--red),var(--red-l));border-radius:2px;animation:lb 1.8s ease forwards}
+@keyframes lb{to{width:100%}}
+#preloader .ptxt{font-family:var(--fh);font-size:1.2rem;color:rgba(255,255,255,.3);letter-spacing:.25em;margin-top:16px;text-transform:uppercase}
+
+/* ===== NAV ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 48px;transition:all .4s}
+.nav::after{content:'';position:absolute;inset:0;background:rgba(11,15,24,.94);backdrop-filter:blur(20px);opacity:0;transition:opacity .4s;z-index:-1}
+.nav.scrolled::after{opacity:1}
+.nav.scrolled{border-bottom:1px solid var(--border)}
+.ni{display:flex;align-items:center;justify-content:space-between;width:100%}
+.nav-left{display:flex;align-items:center;gap:40px}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-crest{width:52px;height:52px;flex-shrink:0;transition:transform .3s}.nav-crest img{width:100%;height:100%;object-fit:contain}
+.nav-brand:hover .nav-crest{transform:scale(1.08) rotate(3deg)}
+.nav-name{font-family:var(--fh);font-size:1.3rem;font-weight:700;color:#fff;letter-spacing:.1em}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:.78rem;font-weight:600;color:var(--td3);text-transform:uppercase;letter-spacing:.08em;transition:color .3s;position:relative;font-family:var(--fb)}
+.nav-links a:hover{color:#fff}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--red);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-social a{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--td3);transition:all .3s}
+.nav-social a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:5px}
+.nav-toggle span{width:20px;height:1.5px;background:#fff;transition:all .3s;border-radius:1px}
+.nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}
+.nav-toggle.active span:nth-child(2){opacity:0}
+.nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+@media(max-width:1024px){.nav{padding:0 20px}.nav-toggle{display:flex;z-index:10001}.nav-links{position:fixed;inset:0;background:rgba(11,15,24,.97);flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .4s;z-index:10000}.nav-links.open{opacity:1;pointer-events:all}.nav-links a{font-size:1.3rem}.nav-social{display:none}}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:72vh;display:flex;align-items:center;overflow:hidden;background:var(--dark);padding-top:72px}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.4}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,15,24,.95) 0%,rgba(11,15,24,.75) 45%,rgba(27,42,74,.55) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;width:100%;padding:80px 48px;max-width:1320px;margin:0 auto}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;padding:8px 20px;border-radius:100px;background:rgba(212,36,40,.15);border:1px solid rgba(212,36,40,.35);font-size:.7rem;font-weight:700;color:var(--red-l);text-transform:uppercase;letter-spacing:.14em;margin-bottom:24px;font-family:var(--fb)}
+.hero-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.4}}
+.hero-title{font-size:clamp(2.6rem,6vw,5rem);font-weight:900;line-height:.95;color:#fff;margin-bottom:18px;max-width:880px}
+.hero-title .thin{font-weight:300;color:rgba(255,255,255,.5);display:block;font-size:.45em;margin-bottom:8px;letter-spacing:.08em}
+.hero-title .red{color:var(--red-l)}
+.hero-desc{font-size:1.05rem;color:rgba(255,255,255,.6);max-width:640px;line-height:1.7;margin-bottom:30px;font-weight:300}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;font-family:var(--fh);font-size:.95rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:4px;border:none;cursor:pointer;transition:all .3s;text-decoration:none}
+.btn svg{transition:transform .3s}
+.btn:hover svg{transform:translateX(4px)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:#fff;color:var(--red);transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.btn-wo{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.25)}
+.btn-wo:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.5)}
+
+/* ===== FIZIO CONTENT ===== */
+.fizio{background:var(--white);padding:110px 0;position:relative;overflow:hidden}
+.fizio::before{content:'';position:absolute;top:40%;left:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(212,36,40,.04),transparent 70%);border-radius:50%}
+.fizio .container{position:relative;z-index:1}
+.fizio-head{text-align:center;margin-bottom:64px;max-width:780px;margin-left:auto;margin-right:auto}
+.fizio-head .sl{display:inline-flex;align-items:center;gap:10px;padding:7px 18px;border-radius:100px;background:rgba(212,36,40,.08);border:1px solid rgba(212,36,40,.25);font-family:var(--fb);font-size:.62rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.18em;margin-bottom:20px}
+.fizio-head h2{font-family:var(--fh);font-size:clamp(2rem,4.5vw,3rem);font-weight:900;color:var(--td);line-height:1.02;margin-bottom:16px}
+.fizio-head h2 .red{color:var(--red)}
+.fizio-head p{color:var(--td2);line-height:1.75;font-size:1rem;max-width:640px;margin:0 auto}
+.fizio-main{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:stretch;margin-bottom:40px}
+@media(max-width:960px){.fizio-main{grid-template-columns:1fr}}
+.fizio-gallery{position:relative;min-height:560px}
+@media(max-width:560px){.fizio-gallery{min-height:420px}}
+.fg-img{position:absolute;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(15,26,48,.2);transition:transform .5s}
+.fg-img img{width:100%;height:100%;object-fit:cover}
+.fg-img::after{content:'';position:absolute;inset:0;border:1px solid rgba(255,255,255,.1);border-radius:16px;pointer-events:none}
+.fg-img.a{top:0;left:0;width:62%;height:70%;z-index:2}
+.fg-img.a:hover{transform:translate(-6px,-6px)}
+.fg-img.b{top:18%;right:0;width:48%;height:58%;z-index:3;border:4px solid var(--white)}
+.fg-img.b:hover{transform:translate(6px,-6px)}
+.fg-img.c{bottom:0;left:14%;width:56%;height:42%;z-index:1}
+.fg-img.c:hover{transform:translate(0,6px)}
+.fg-badge{position:absolute;bottom:0;right:0;z-index:4;background:linear-gradient(135deg,var(--red),var(--red-d));color:#fff;padding:22px 26px;border-radius:14px;box-shadow:0 20px 50px rgba(212,36,40,.35);max-width:220px}
+.fg-badge .sm{font-family:var(--fb);font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;opacity:.85;margin-bottom:4px}
+.fg-badge .lg{font-family:var(--fh);font-size:1.2rem;font-weight:900;line-height:1.1}
+.fizio-info{display:flex;flex-direction:column;gap:14px}
+.fi-title{font-family:var(--fh);font-size:.72rem;font-weight:700;color:var(--td3);text-transform:uppercase;letter-spacing:.2em;margin-bottom:4px}
+.fi-card{padding:22px 24px;background:var(--light);border:1px solid var(--bl);border-radius:14px;display:flex;align-items:center;gap:18px;transition:all .35s;position:relative;overflow:hidden}
+.fi-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red);transform:scaleY(0);transform-origin:top;transition:transform .35s}
+.fi-card:hover{border-color:transparent;background:var(--white);transform:translateX(6px);box-shadow:0 16px 40px rgba(0,0,0,.08)}
+.fi-card:hover::before{transform:scaleY(1)}
+.fi-card .ic{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,rgba(212,36,40,.12),rgba(212,36,40,.04));border:1px solid rgba(212,36,40,.2);display:flex;align-items:center;justify-content:center;color:var(--red);flex-shrink:0}
+.fi-card .ic svg{width:22px;height:22px}
+.fi-card .tag{font-family:var(--fb);font-size:.55rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.15em;margin-bottom:4px}
+.fi-card .tl{font-family:var(--fh);font-size:1.1rem;font-weight:800;color:var(--td);letter-spacing:.02em;margin-bottom:2px}
+.fi-card .ds{font-size:.82rem;color:var(--td3);font-weight:500}
+.fi-card .bg{margin-left:auto;font-family:var(--fh);font-size:2rem;font-weight:900;color:var(--red);line-height:1}
+.fizio-bottom{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;align-items:center}
+@media(max-width:800px){.fizio-bottom{grid-template-columns:1fr}}
+.fizio-warn{display:flex;align-items:center;gap:16px;padding:22px 28px;background:linear-gradient(135deg,var(--dark-2),var(--dark));border-radius:14px;border:1px solid var(--border);position:relative;overflow:hidden}
+.fizio-warn::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--red),var(--red-l))}
+.fizio-warn .ic{width:44px;height:44px;border-radius:50%;background:rgba(212,36,40,.12);display:flex;align-items:center;justify-content:center;color:var(--red-l);flex-shrink:0}
+.fizio-warn .ic svg{width:20px;height:20px}
+.fizio-warn .tx{color:#fff;font-family:var(--fh);font-size:1.1rem;font-weight:700;letter-spacing:.02em}
+.fizio-warn .sb{color:rgba(255,255,255,.55);font-family:var(--fb);font-size:.78rem;margin-top:2px;font-weight:400;text-transform:none;letter-spacing:0}
+.fizio-contact{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+@media(max-width:800px){.fizio-contact{justify-content:flex-start}}
+.fc-item{display:flex;align-items:center;gap:10px;padding:14px 18px;background:var(--white);border:1px solid var(--bl);border-radius:12px;font-size:.82rem;color:var(--td);font-family:var(--fb);font-weight:600;transition:all .3s}
+.fc-item:hover{border-color:var(--red);color:var(--red);transform:translateY(-2px);box-shadow:0 10px 24px rgba(212,36,40,.1)}
+.fc-item svg{width:15px;height:15px;color:var(--red)}
+
+/* ===== CONTACT CTA ===== */
+.fizio-cta{background:linear-gradient(135deg,var(--blue-d) 0%,var(--blue) 100%);padding:90px 0;position:relative;overflow:hidden}
+.fizio-cta::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(255,255,255,.015) 14px,rgba(255,255,255,.015) 15px)}
+.fizio-cta::after{content:'RESTART';position:absolute;font-family:var(--fh);font-size:18rem;font-weight:900;color:rgba(255,255,255,.025);right:-60px;bottom:-100px;line-height:1;white-space:nowrap}
+.fizio-cta .container{position:relative;z-index:1}
+.fcta-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
+@media(max-width:900px){.fcta-grid{grid-template-columns:1fr}}
+.fcta-text .sl{font-family:var(--fb);font-size:.65rem;font-weight:700;color:var(--red-l);text-transform:uppercase;letter-spacing:.2em;margin-bottom:14px}
+.fcta-text h2{font-family:var(--fh);font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:900;color:#fff;line-height:1.05;margin-bottom:16px}
+.fcta-text p{color:rgba(255,255,255,.6);line-height:1.75;font-size:.95rem;margin-bottom:28px;max-width:520px}
+.fcta-actions{display:flex;gap:12px;flex-wrap:wrap}
+.fcta-info{display:flex;flex-direction:column;gap:14px}
+.fci-item{display:flex;align-items:center;gap:18px;padding:22px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;transition:all .35s}
+.fci-item:hover{background:rgba(255,255,255,.07);border-color:rgba(212,36,40,.35);transform:translateX(4px)}
+.fci-item .ic{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,rgba(212,36,40,.2),rgba(212,36,40,.05));border:1px solid rgba(212,36,40,.25);display:flex;align-items:center;justify-content:center;color:var(--red-l);flex-shrink:0}
+.fci-item .ic svg{width:20px;height:20px}
+.fci-item .lb{font-family:var(--fb);font-size:.58rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.15em;margin-bottom:3px}
+.fci-item .vl{font-family:var(--fh);font-size:1.05rem;font-weight:700;color:#fff;letter-spacing:.02em;word-break:break-word}
+@media(max-width:768px){
+.hero{min-height:60vh}
+.hero-content{padding:60px 20px}
+.btn{padding:13px 22px;font-size:.85rem}
+.fizio-cta{padding:60px 0}
+.fci-item{padding:16px;gap:14px}
+.fci-item .vl{font-size:.92rem}
+}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--blue-d);padding:60px 0 24px}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.06)}
+.foot-brand .fbl{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.foot-brand .fbc{width:40px;height:40px}.foot-brand .fbc img{width:100%;height:100%;object-fit:contain}
+.foot-brand .fbn{font-family:var(--fh);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:.06em}
+.foot-brand p{color:var(--td3);font-size:.78rem;line-height:1.7;max-width:260px}
+.foot-col h4{font-family:var(--fb);font-size:.6rem;font-weight:700;color:var(--td3);text-transform:uppercase;letter-spacing:.15em;margin-bottom:16px}
+.foot-col ul{list-style:none}.foot-col li{margin-bottom:10px}
+.foot-col a{color:rgba(255,255,255,.45);font-size:.78rem;transition:color .3s}.foot-col a:hover{color:var(--red-l)}
+.fb{display:flex;justify-content:space-between;align-items:center;padding-top:20px;flex-wrap:wrap;gap:12px}
+.fb p{font-size:.62rem;color:var(--td3)}
+.fs{display:flex;gap:8px}
+.fsa{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:var(--td3);transition:all .3s}
+.fsa:hover{background:var(--red);border-color:var(--red);color:#fff}
+@media(max-width:768px){.ft{grid-template-columns:1fr 1fr}}
+
+.gs{opacity:0;transform:translateY(40px)}
+.gsl{opacity:0;transform:translateX(-40px)}
+.gss{opacity:0;transform:scale(.94)}
+</style>
+</head>
+<body>
+
+<div id="preloader"><img src="/Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png" alt="" class="plogo"><div class="bar"><i></i></div><div class="ptxt">NK Polet Sveta Klara</div></div>
+
+<%- include('../partials/nav', {currentPage: currentPage}) %>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-bg"><img src="/RestartFizioterapijaSlike/Slika5.jpeg" alt="Fizioterapija Restart"></div>
+<div class="hero-ov"></div>
+<div class="hero-content">
+<div class="hero-tag"><span class="dot"></span>Partner kluba</div>
+<h1 class="hero-title"><span class="thin">Fizioterapija</span>CENTAR <span class="red">RESTART</span></h1>
+<p class="hero-desc">Vlastiti centar za fizioterapiju i rehabilitaciju NK Poleta. Profesionalna skrb o zdravlju i oporavku naših igrača i njihovih obitelji — stručan tim, individualni pristup, moderne metode.</p>
+<div class="hero-actions">
+<a href="tel:+385993334040" class="btn btn-red">Naruči se <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+<a href="https://www.fizioterapijarestart.hr" target="_blank" rel="noopener" class="btn btn-wo">Službena stranica</a>
+</div>
+</div>
+</section>
+
+<!-- FIZIO MAIN CONTENT -->
+<section class="fizio">
+<div class="container">
+<div class="fizio-head gs">
+<div class="sl">Pogodnosti za članove NK Poleta</div>
+<h2>Brigu o zdravlju <span class="red">preuzimamo mi</span></h2>
+<p>NK Polet kontinuirano radi na pogodnostima za svoje članove. Pokrenuli smo vlastiti centar za fizioterapiju i rehabilitaciju kako bismo igračima i njihovim obiteljima osigurali najbolju skrb o zdravlju i oporavku.</p>
+</div>
+
+<div class="fizio-main">
+<div class="fizio-gallery gsl">
+<div class="fg-img a"><img src="/RestartFizioterapijaSlike/Slika2.jpeg" alt="Fizioterapija Restart"></div>
+<div class="fg-img b"><img src="/RestartFizioterapijaSlike/Slika3.jpeg" alt="Fizioterapija Restart"></div>
+<div class="fg-img c"><img src="/RestartFizioterapijaSlike/Slika4.jpeg" alt="Fizioterapija Restart"></div>
+<div class="fg-badge"><div class="sm">Za igrače NK Poleta</div><div class="lg">Besplatan pregled + terapija</div></div>
+</div>
+
+<div class="fizio-info gss">
+<div class="fi-title">Pogodnosti za članove</div>
+<div class="fi-card">
+<div class="ic"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+<div><div class="tag">Igrači</div><div class="tl">Prvi pregled</div><div class="ds">Kompletan pregled bez naknade</div></div>
+<div class="bg">0€</div>
+</div>
+<div class="fi-card">
+<div class="ic"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+<div><div class="tag">Igrači</div><div class="tl">Prva terapija</div><div class="ds">Potpuno besplatna tretman</div></div>
+<div class="bg">0€</div>
+</div>
+<div class="fi-card">
+<div class="ic"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+<div><div class="tag">Roditelji</div><div class="tl">Popust na tretmane</div><div class="ds">Na svaki tretman u centru</div></div>
+<div class="bg">-20%</div>
+</div>
+</div>
+</div>
+
+<div class="fizio-bottom">
+<div class="fizio-warn gs">
+<div class="ic"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+<div><div class="tx">Bol nije normalna — reagiraj na vrijeme</div><div class="sb">Stručan tim, individualni pristup i moderne metode rada na jednom mjestu.</div></div>
+</div>
+<div class="fizio-contact">
+<a href="tel:+385993334040" class="fc-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>099 333 4040</a>
+<a href="https://www.fizioterapijarestart.hr" target="_blank" rel="noopener" class="fc-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>Web</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="fizio-cta">
+<div class="container">
+<div class="fcta-grid">
+<div class="fcta-text gsl">
+<div class="sl">Kontakt</div>
+<h2>Zakaži termin ili pregled</h2>
+<p>Najbrži način je putem telefona, a sve dodatne informacije o terapijama i uslugama možeš pronaći na službenoj web stranici centra Restart.</p>
+<div class="fcta-actions">
+<a href="tel:+385993334040" class="btn btn-red">099 333 4040 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+<a href="mailto:restart.fizioterapija@gmail.com" class="btn btn-wo">Email</a>
+</div>
+</div>
+<div class="fcta-info gss">
+<div class="fci-item">
+<div class="ic"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+<div><div class="lb">Telefon</div><div class="vl">+385 99 333 4040</div></div>
+</div>
+<div class="fci-item">
+<div class="ic"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+<div><div class="lb">Email</div><div class="vl">restart.fizioterapija@gmail.com</div></div>
+</div>
+<div class="fci-item">
+<div class="ic"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+<div><div class="lb">Web</div><div class="vl">fizioterapijarestart.hr</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="container">
+<div class="ft">
+<div class="foot-brand"><div class="fbl"><div class="fbc"><img src="/Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png" alt=""></div><div class="fbn">NK POLET SVETA KLARA</div></div><p>Škola nogometa osnovana 1948. godine u Svetoj Klari, Novi Zagreb. Više od 75 godina tradicije u razvoju mladih igrača.</p></div>
+<div class="foot-col"><h4>Škola nogometa</h4><ul><li><a href="/#upisnica">Upisnica</a></li><li><a href="/#proljetna-liga">Proljetna liga</a></li><li><a href="/#oprema">Oprema</a></li></ul></div>
+<div class="foot-col"><h4>Klub</h4><ul><li><a href="/seniori">Seniorska momčad</a></li><li><a href="/fizio">Fizioterapija</a></li><li><a href="/onama">O klubu</a></li><li><a href="/vijesti">Vijesti</a></li></ul></div>
+<div class="foot-col"><h4>Kontakt</h4><ul><li><a href="tel:+385993334040">099 333 4040</a></li><li><a href="mailto:restart.fizioterapija@gmail.com">restart.fizioterapija@gmail.com</a></li><li><a href="https://www.fizioterapijarestart.hr" target="_blank" rel="noopener">fizioterapijarestart.hr</a></li></ul></div>
+</div>
+<div class="fb"><p>&copy; 2026 NK Polet Sveta Klara. Sva prava pridržana.</p><div class="fs"><a href="https://www.facebook.com/nkpoletsvetaklara1948/" target="_blank" rel="noopener" class="fsa"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></div></div>
+</div></footer>
+
+<script>
+window.addEventListener('load',()=>{
+setTimeout(()=>{const p=document.getElementById('preloader');p.classList.add('hide');setTimeout(()=>p.remove(),700)},1400);
+setTimeout(()=>{
+  if(typeof gsap==='undefined')return;
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.utils.toArray('.gs').forEach(el=>{gsap.fromTo(el,{opacity:0,y:40},{opacity:1,y:0,duration:.8,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%'}})});
+  gsap.utils.toArray('.gsl').forEach(el=>{gsap.fromTo(el,{opacity:0,x:-40},{opacity:1,x:0,duration:.8,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%'}})});
+  gsap.utils.toArray('.gss').forEach(el=>{gsap.fromTo(el,{opacity:0,scale:.94},{opacity:1,scale:1,duration:.8,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%'}})});
+},100);
+});
+</script>
+<%- include('../partials/nav-js') %>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mladi uzrasti — NK Polet Sveta Klara</title>
+<meta name="description" content="Tablice i popisi igrača svih mlađih generacija NK Poleta. Podatci iz HNS Semafora za sezonu 2025/26.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--blue:#1B2A4A;--blue-l:#2C4470;--blue-d:#0F1A30;
+--red:#D42428;--red-l:#E84E52;--red-d:#A01C1F;
+--dark:#0B0F18;--dark-2:#111827;--dark-3:#1A2233;--dark-4:#212B3E;
+--light:#F7F7F8;--light-2:#EEEEF0;--cream:#FAFAF9;--white:#FFF;
+--td:#1A1A2E;--td2:#4A5568;--td3:#717D8F;
+--border:rgba(255,255,255,.06);--bl:rgba(0,0,0,.06);
+--fh:'Barlow Condensed',sans-serif;--fb:'Inter',sans-serif;--fm:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--fb);background:var(--dark);color:var(--light);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5{font-family:var(--fh);text-transform:uppercase;letter-spacing:.02em}
+.container{max-width:1320px;margin:0 auto;padding:0 48px}
+@media(max-width:768px){.container{padding:0 20px}}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+
+#preloader{position:fixed;inset:0;z-index:99999;background:var(--dark);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s,visibility .6s}
+#preloader.hide{opacity:0;visibility:hidden}
+#preloader .plogo{width:100px;animation:pp 1.5s ease-in-out infinite}
+@keyframes pp{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+#preloader .bar{width:120px;height:2px;background:var(--dark-3);border-radius:2px;margin-top:24px;overflow:hidden}
+#preloader .bar i{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--red),var(--red-l));border-radius:2px;animation:lb 1.8s ease forwards}
+@keyframes lb{to{width:100%}}
+#preloader .ptxt{font-family:var(--fh);font-size:1.2rem;color:rgba(255,255,255,.3);letter-spacing:.25em;margin-top:16px;text-transform:uppercase}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 48px;transition:all .4s}
+.nav::after{content:'';position:absolute;inset:0;background:rgba(11,15,24,.94);backdrop-filter:blur(20px);opacity:0;transition:opacity .4s;z-index:-1}
+.nav.scrolled::after{opacity:1}
+.nav.scrolled{border-bottom:1px solid var(--border)}
+.ni{display:flex;align-items:center;justify-content:space-between;width:100%}
+.nav-left{display:flex;align-items:center;gap:40px}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-crest{width:52px;height:52px;flex-shrink:0;transition:transform .3s}.nav-crest img{width:100%;height:100%;object-fit:contain}
+.nav-brand:hover .nav-crest{transform:scale(1.08) rotate(3deg)}
+.nav-name{font-family:var(--fh);font-size:1.3rem;font-weight:700;color:#fff;letter-spacing:.1em}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:.78rem;font-weight:600;color:var(--td3);text-transform:uppercase;letter-spacing:.08em;transition:color .3s;position:relative;font-family:var(--fb)}
+.nav-links a:hover{color:#fff}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--red);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-social a{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--td3);transition:all .3s}
+.nav-social a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:5px}
+.nav-toggle span{width:20px;height:1.5px;background:#fff;transition:all .3s;border-radius:1px}
+.nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}
+.nav-toggle.active span:nth-child(2){opacity:0}
+.nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+@media(max-width:1024px){.nav{padding:0 20px}.nav-toggle{display:flex;z-index:10001}.nav-links{position:fixed;inset:0;background:rgba(11,15,24,.97);flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .4s;z-index:10000}.nav-links.open{opacity:1;pointer-events:all}.nav-links a{font-size:1.3rem}.nav-social{display:none}}
+
+.hero{position:relative;min-height:46vh;display:flex;align-items:center;background:linear-gradient(135deg,var(--dark) 0%,var(--blue-d) 60%,var(--blue) 100%);padding:120px 0 60px;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(255,255,255,.015) 14px,rgba(255,255,255,.015) 15px),repeating-linear-gradient(-45deg,transparent,transparent 14px,rgba(255,255,255,.015) 14px,rgba(255,255,255,.015) 15px);pointer-events:none}
+.hero::after{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(212,36,40,.12),transparent 70%);border-radius:50%;pointer-events:none}
+.hero .container{position:relative;z-index:1}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;padding:8px 18px;border-radius:100px;background:rgba(212,36,40,.15);border:1px solid rgba(212,36,40,.35);font-size:.65rem;font-weight:700;color:var(--red-l);text-transform:uppercase;letter-spacing:.16em;margin-bottom:22px;font-family:var(--fb)}
+.hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.4}}
+.hero h1{font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:900;color:#fff;line-height:.98;margin-bottom:16px;letter-spacing:.01em}
+.hero h1 .red{color:var(--red-l)}
+.hero p{color:rgba(255,255,255,.6);max-width:640px;line-height:1.7;font-size:1rem;font-weight:300}
+
+.polet-tables{background:linear-gradient(180deg,var(--dark-2) 0%,var(--dark) 100%);padding:80px 0 120px;position:relative;overflow:hidden}
+.polet-tables::before{content:'';position:absolute;top:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(212,36,40,.06),transparent 70%);border-radius:50%;pointer-events:none}
+.polet-tables .container{position:relative;z-index:1}
+.pt-cat-selector{margin-bottom:40px}
+.pt-cat-tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.pt-cat-tab{font-family:var(--fh);font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:11px 22px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;color:rgba(255,255,255,.55);cursor:pointer;transition:all .3s}
+.pt-cat-tab:hover{background:rgba(255,255,255,.08);color:rgba(255,255,255,.85)}
+.pt-cat-tab.active{background:linear-gradient(135deg,var(--red),var(--red-l));border-color:var(--red);color:#fff;box-shadow:0 4px 18px rgba(212,36,40,.3)}
+.pt-cat-dropdown-wrap{display:none;margin-bottom:24px}
+@media(max-width:640px){.pt-cat-tabs{display:none}.pt-cat-dropdown-wrap{display:block}.pt-cat-tab{font-size:.78rem;padding:10px 16px}}
+.pt-cat-dropdown{width:100%;padding:15px 20px;font-family:var(--fh);font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;color:#fff;appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23E84E52' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.pt-cat-dropdown option{background:var(--dark);color:#fff}
+.pt-cat-content{opacity:0;transform:translateY(20px);transition:all .5s ease}
+.pt-cat-content.visible{opacity:1;transform:translateY(0)}
+.pt-league-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:14px}
+.pt-league-title{font-family:var(--fh);font-size:1.4rem;font-weight:800;color:#fff;letter-spacing:.03em}
+.pt-league-badge{font-family:var(--fm);font-size:.7rem;padding:6px 14px;background:rgba(212,36,40,.12);border:1px solid rgba(212,36,40,.25);border-radius:100px;color:var(--red-l);letter-spacing:.08em}
+.pt-table-wrap{overflow-x:auto;border-radius:14px;border:1px solid rgba(255,255,255,.06);background:linear-gradient(135deg,rgba(255,255,255,.03),rgba(255,255,255,.01));margin-bottom:40px;-webkit-overflow-scrolling:touch}
+.pt-league-table{width:100%;border-collapse:collapse;min-width:700px}
+.pt-league-table thead th{font-family:var(--fh);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--td3);padding:15px 12px;text-align:center;border-bottom:1px solid rgba(255,255,255,.06);white-space:nowrap}
+.pt-league-table thead th:nth-child(2){text-align:left}
+.pt-league-table tbody tr{transition:all .3s;border-bottom:1px solid rgba(255,255,255,.03)}
+.pt-league-table tbody tr:last-child{border-bottom:none}
+.pt-league-table tbody tr:hover{background:rgba(255,255,255,.04)}
+.pt-league-table tbody tr.pt-highlight{background:rgba(212,36,40,.08);border-left:3px solid var(--red)}
+.pt-league-table tbody tr.pt-highlight td:first-child{padding-left:9px}
+.pt-league-table tbody td{padding:13px 12px;text-align:center;font-family:var(--fm);font-size:.83rem;color:rgba(255,255,255,.7);white-space:nowrap}
+.pt-league-table tbody td:nth-child(2){text-align:left;font-family:var(--fb);font-weight:600;color:#fff}
+.pt-league-table tbody td:first-child{font-weight:700;color:var(--td3);width:40px}
+.pt-league-table tbody td:last-child{font-weight:700;color:var(--red-l);font-size:.92rem}
+.pt-pos-badge{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;font-size:.78rem}
+.pt-pos-1{background:rgba(255,215,0,.12);color:#FFD700}
+.pt-pos-2{background:rgba(192,192,192,.1);color:#C0C0C0}
+.pt-pos-3{background:rgba(205,127,50,.1);color:#CD7F32}
+.pt-roster-header{font-family:var(--fh);font-size:1.4rem;font-weight:800;color:#fff;letter-spacing:.03em;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.pt-roster-header .count{font-family:var(--fm);font-size:.8rem;color:var(--td3);font-weight:400}
+.pt-roster-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+@media(max-width:480px){.pt-roster-grid{grid-template-columns:1fr 1fr}}
+.pt-player-card{display:flex;align-items:center;gap:12px;padding:14px 16px;background:linear-gradient(135deg,rgba(255,255,255,.03),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.05);border-radius:12px;transition:all .3s}
+.pt-player-card:hover{border-color:rgba(212,36,40,.25);background:rgba(255,255,255,.05);transform:translateY(-2px)}
+.pt-player-card.gk{border-left:3px solid #FFD700}
+.pt-player-card.gk .pt-player-num{background:linear-gradient(135deg,#B8860B,#FFD700);color:#000}
+.pt-player-num{width:34px;height:34px;min-width:34px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--red),var(--red-l));border-radius:9px;font-family:var(--fm);font-size:.82rem;font-weight:700;color:#fff}
+.pt-player-num.no-num{background:rgba(255,255,255,.1);color:var(--td3);font-size:.62rem}
+.pt-player-name{font-family:var(--fb);font-size:.87rem;font-weight:600;color:#fff;line-height:1.3}
+.pt-player-pos{font-family:var(--fm);font-size:.62rem;color:var(--td3);text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
+
+.footer{background:var(--blue-d);padding:60px 0 24px}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.06)}
+.foot-brand .fbl{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.foot-brand .fbc{width:40px;height:40px}.foot-brand .fbc img{width:100%;height:100%;object-fit:contain}
+.foot-brand .fbn{font-family:var(--fh);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:.06em}
+.foot-brand p{color:var(--td3);font-size:.78rem;line-height:1.7;max-width:260px}
+.foot-col h4{font-family:var(--fb);font-size:.6rem;font-weight:700;color:var(--td3);text-transform:uppercase;letter-spacing:.15em;margin-bottom:16px}
+.foot-col ul{list-style:none}.foot-col li{margin-bottom:10px}
+.foot-col a{color:rgba(255,255,255,.45);font-size:.78rem;transition:color .3s}.foot-col a:hover{color:var(--red-l)}
+.fb{display:flex;justify-content:space-between;align-items:center;padding-top:20px;flex-wrap:wrap;gap:12px}
+.fb p{font-size:.62rem;color:var(--td3)}
+.fs{display:flex;gap:8px}
+.fsa{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:var(--td3);transition:all .3s}
+.fsa:hover{background:var(--red);border-color:var(--red);color:#fff}
+@media(max-width:768px){.ft{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<div id="preloader"><img src="/Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png" alt="" class="plogo"><div class="bar"><i></i></div><div class="ptxt">NK Polet Sveta Klara</div></div>
+
+<%- include('../partials/nav', {currentPage: currentPage}) %>
+
+<section class="hero">
+<div class="container">
+<div class="hero-tag"><span class="dot"></span>HNS Semafor · Sezona 2025/26</div>
+<h1>Mladi <span class="red">uzrasti</span></h1>
+<p>Tablice i popisi igrača svih mlađih generacija NK Poleta — od zagića do juniora. Svi podatci preuzeti s HNS Semafora za tekuću sezonu.</p>
+</div>
+</section>
+
+<section class="polet-tables">
+<div class="container">
+<div class="pt-cat-selector">
+<div class="pt-cat-tabs" id="ptCatTabs">
+<div class="pt-cat-tab active" data-cat="juniori">Juniori</div>
+<div class="pt-cat-tab" data-cat="kadeti">Kadeti</div>
+<div class="pt-cat-tab" data-cat="pioniri">Pioniri</div>
+<div class="pt-cat-tab" data-cat="mladi-pioniri">Mladi pioniri</div>
+<div class="pt-cat-tab" data-cat="limaci-b1">Limači B1</div>
+<div class="pt-cat-tab" data-cat="limaci-b2">Limači B2</div>
+<div class="pt-cat-tab" data-cat="zagici-b1">Zagići B1</div>
+<div class="pt-cat-tab" data-cat="zagici-b2">Zagići B2</div>
+</div>
+<div class="pt-cat-dropdown-wrap">
+<select class="pt-cat-dropdown" id="ptCatDropdown">
+<option value="juniori">Juniori</option>
+<option value="kadeti">Kadeti</option>
+<option value="pioniri">Pioniri</option>
+<option value="mladi-pioniri">Mladi pioniri</option>
+<option value="limaci-b1">Limači B1</option>
+<option value="limaci-b2">Limači B2</option>
+<option value="zagici-b1">Zagići B1</option>
+<option value="zagici-b2">Zagići B2</option>
+</select>
+</div>
+</div>
+<div id="ptCatContent"></div>
+</div>
+</section>
+
+<footer class="footer"><div class="container">
+<div class="ft">
+<div class="foot-brand"><div class="fbl"><div class="fbc"><img src="/Logo/657d031c9cf70ae04f623d076157e09ff63013fb.png" alt=""></div><div class="fbn">NK POLET SVETA KLARA</div></div><p>Škola nogometa osnovana 1948. godine u Svetoj Klari, Novi Zagreb. Više od 75 godina tradicije u razvoju mladih igrača.</p></div>
+<div class="foot-col"><h4>Škola nogometa</h4><ul><li><a href="/#upisnica">Upisnica</a></li><li><a href="/#proljetna-liga">Proljetna liga</a></li><li><a href="/mladi-uzrasti">Mladi uzrasti</a></li><li><a href="/#oprema">Oprema</a></li></ul></div>
+<div class="foot-col"><h4>Klub</h4><ul><li><a href="/seniori">Seniorska momčad</a></li><li><a href="/fizio">Fizioterapija</a></li><li><a href="/onama">O klubu</a></li><li><a href="/vijesti">Vijesti</a></li></ul></div>
+<div class="foot-col"><h4>Kontakt</h4><ul><li><a href="https://wa.me/385911528905" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="tel:+38516119405">01 / 611 9405</a></li><li><a href="mailto:nk.polet.sv.klara@gmail.com">nk.polet.sv.klara@gmail.com</a></li></ul></div>
+</div>
+<div class="fb"><p>&copy; 2026 NK Polet Sveta Klara. Sva prava pridržana.</p><div class="fs"><a href="https://www.facebook.com/nkpoletsvetaklara1948/" target="_blank" rel="noopener" class="fsa"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></div></div>
+</div></footer>
+
+<script>
+const ptCategories = {
+  juniori:{name:'Juniori',league:'1. ZNL Juniori 25/26',poletName:'NK Polet (SK)',table:[[1,'NK Sava (Z)',17,15,1,1,62,12,'+50',46],[2,'NK Dubrava Tim Kabel',16,12,2,2,68,20,'+48',38],[3,'NK Sparta (Z)',17,10,5,2,59,25,'+34',35],[4,'NK Kašina',16,10,3,3,68,25,'+43',33],[5,'NK Studentski grad',17,10,1,6,59,29,'+30',31],[6,'NK ZET (-3)',15,9,0,6,36,40,'-4',24],[7,'NK Zelengaj 1948',17,7,0,10,47,55,'-8',21],[8,'NK Concordia',16,6,3,7,36,46,'-10',21],[9,'NK Sloga Zagreb',16,6,2,8,44,46,'-2',20],[10,'NK Nur',13,5,2,6,41,46,'-5',17],[11,'NK Prigorje (M)',17,5,1,11,37,66,'-29',16],[12,'NK Čulinec',16,3,1,12,26,77,'-51',10],[13,'NK Ivanja Reka',14,0,3,11,15,72,'-57',3],[14,'NK Polet (SK)',15,0,2,13,25,64,'-39',2]],players:[{n:'Jan Božina',pos:'GK',num:19},{n:'Ivan Mandić',pos:'GK',num:5},{n:'Luka Popović',pos:'GK',num:1},{n:'Mislav Antološ',num:27},{n:'Marko Balen',num:null},{n:'Gabriel Blažević',num:8},{n:'Mate Brekalo',num:11},{n:'Mateo Bungić',num:66},{n:'Sven Filipović',num:23},{n:'Leon Golubović',num:16},{n:'Luka Golubović',num:10},{n:'Ivano Guja',num:4},{n:'Antonio Harapin',num:17},{n:'Noa Lovričić',num:18},{n:'Tomislav Marić',num:8},{n:'Gabriel Marojević',num:18},{n:'Mihael Perić',num:23},{n:'Damjan Presečki',num:13},{n:'Antonio Šertić',num:5},{n:'Filip Soplanda',num:9},{n:'Alan Šrkoč',num:3},{n:'Luka Stanić',num:11},{n:'Jakov Škudar',num:21},{n:'Rok Vučić',num:18}]},
+  kadeti:{name:'Kadeti',league:'1. ZNL Kadeti 25/26',poletName:'NK Polet (SK)',table:[[1,'NK Kašina',20,15,3,2,82,38,'+44',48],[2,'NK Studentski grad',19,15,2,2,57,21,'+36',47],[3,'NK Sava (Z)',19,12,3,4,51,25,'+26',39],[4,'NK Sparta (Z)',19,12,2,5,51,27,'+24',38],[5,'NK Sloga Zagreb',19,10,1,8,45,37,'+8',31],[6,'NK Ivanja Reka',18,8,3,7,47,35,'+12',27],[7,'NK Polet (SK)',17,9,0,8,36,32,'+4',27],[8,'NK Maksimir',19,8,3,8,39,37,'+2',27],[9,'NK Čulinec',17,7,4,6,38,43,'-5',25],[10,'NK Trešnjevka',18,7,2,9,39,32,'+7',23],[11,'NK Kralj Tomislav',18,6,4,8,42,33,'+9',22],[12,'NK Zelengaj 1948',19,6,2,11,27,39,'-12',20],[13,'NK Prigorje (M)',19,4,3,12,21,47,'-26',15],[14,'NK Concordia',18,4,2,12,25,56,'-31',14],[15,'NK ZET',18,3,4,11,23,60,'-37',13],[16,'NK Podsused',15,1,0,14,12,73,'-61',3]],players:[{n:'Karlo Majdek',pos:'GK',num:4},{n:'Vide Raguž',pos:'GK',num:1},{n:'Mislav Antološ',num:6},{n:'Fran Bliznac',num:2},{n:'Mate Brekalo',num:11},{n:'Petar Bungić',num:5},{n:'Karlo Efremovski',num:88},{n:'Jakov Gagula',num:16},{n:'Jakov Grgić',num:12},{n:'Marin Gverić',num:96},{n:'Jakov Horvat',num:18},{n:'Lovro Horvat',num:18},{n:'Ivano Juha',num:28},{n:'Branimir Kujundžić',num:7},{n:'Leon Lesdedaj',num:14},{n:'Rafael Lukenda',num:49},{n:'Sven Majdek',num:10},{n:'Lukas Mihaljević',num:65},{n:'Vedran Poljanec',num:23},{n:'Roko Raguž',num:9},{n:'Antonio Šertić',num:5},{n:'Alan Šrkoč',num:3},{n:'Tin Stjepan Vujica',num:15},{n:'Gabriel Zovko',num:27}]},
+  pioniri:{name:'Pioniri',league:'2. ZNL Pioniri 25/26',poletName:'NK Polet (SK)',table:[[1,'NK Prigorje (M)',16,16,0,0,114,7,'+107',48],[2,'NK Savica CC',17,14,0,3,81,39,'+42',42],[3,'NK Kralj Tomislav',16,13,0,3,103,23,'+80',39],[4,'NK Čulinec',16,11,2,3,84,28,'+56',35],[5,'NK Botinec',16,10,1,5,72,42,'+30',31],[6,'NK Nur',17,9,0,8,56,72,'-16',27],[7,'NK Concordia',15,8,0,7,59,42,'+17',24],[8,'NK Prečko',16,7,0,9,52,48,'+4',21],[9,'NK Odra',16,7,0,9,48,45,'+3',21],[10,'NK Ivanja Reka',15,7,0,8,42,52,'-10',21],[11,'NK Sloga Zagreb',16,3,0,13,34,66,'-32',9],[12,'NK Polet (SK)',16,2,1,13,33,62,'-29',7],[13,'NK Zelengaj 1948',15,2,0,13,24,105,'-81',6],[14,'NK Croatia 98',15,0,0,15,8,179,'-171',0]],players:[{n:'David Jelica',pos:'GK',num:5},{n:'Jan Karaula',pos:'GK',num:1},{n:'Gabriel Arambašić',num:33},{n:'Sven Bliznac',num:97},{n:'Ivan Dragić',num:17},{n:'Domagoj Duvnjak',num:16},{n:'Marin Gverić',num:96},{n:'Lovro Horvat',num:18},{n:'Lovro Jezerčić',num:4},{n:'Toni Lovrić',num:56},{n:'Šimun Matković',num:89},{n:'Filip Milošević',num:10},{n:'Filip Mirosavljević',num:13},{n:'Andrija Pulić',num:30},{n:'Fabijan Puškarić',num:11},{n:'Nolan Škrbin',num:13},{n:'Jakov Vučenović',num:22},{n:'Lovro Vučinović',num:null},{n:'Petar Zovko',num:9}]},
+  'mladi-pioniri':{name:'Mladi pioniri',league:'2. ZNL Mladi pioniri 25/26',poletName:'NK Polet (SK)',table:[[1,'NK Savica CC',17,16,0,1,106,24,'+82',48],[2,'NK Kralj Tomislav',16,12,1,3,58,30,'+28',37],[3,'NK Čulinec',16,11,1,4,53,20,'+33',34],[4,'NK Odra',16,10,2,4,69,24,'+45',32],[5,'NK Prigorje (M)',16,10,2,4,50,12,'+38',32],[6,'NK Prečko',16,10,2,4,46,15,'+31',32],[7,'NK Zelengaj 1948',15,10,1,4,61,17,'+44',31],[8,'NK Concordia',16,7,2,7,40,36,'+4',23],[9,'NK Ivanja Reka',15,5,2,8,38,50,'-12',17],[10,'NK Nur',17,5,1,11,54,70,'-16',16],[11,'NK Botinec',16,3,3,10,15,59,'-44',12],[12,'NK Polet (SK)',16,3,0,13,16,68,'-52',9],[13,'NK Croatia 98',16,1,1,14,24,88,'-64',4],[14,'NK Sloga Zagreb',16,0,0,16,10,127,'-117',0]],players:[{n:'Marko Balija',pos:'GK',num:41},{n:'Dominik Kemenec',pos:'GK',num:79},{n:'Pavao Rašić',pos:'GK',num:78},{n:'Antonio Božić',num:23},{n:'Leo Božić',num:27},{n:'Dominik Cvrk',num:45},{n:'Jakov Čavar',num:12},{n:'Marko Đebro',num:39},{n:'Mihael Ivanović',num:88},{n:'Dino Kučić',num:44},{n:'Niko Lelas',num:73},{n:'Gabriel Marković',num:15},{n:'Pavao Matković',num:55},{n:'Leon Pole',num:8},{n:'Abel Preberina',num:16},{n:'Mislav Prša',num:18},{n:'Ivan Pušeljić',num:55},{n:'Fabijan Puškarić',num:11},{n:'Karlo Radenković',num:57},{n:'Mateo Radenković',num:58},{n:'Petar Radenković',num:56},{n:'Petar Smolčić',num:14},{n:'Ivano Šalić',num:66},{n:'Karol Teveli',num:7},{n:'Šimun Petar Tomljenović',num:6}]},
+  'limaci-b1':{name:'Limači B1',league:'2. ZNL Limači grupa A 25/26',poletName:'NK Polet (SK)',table:[[1,'NK Hrvatski dragovoljac (Z)',12,8,3,1,44,19,'+25',27],[2,'NK Jarun',12,8,2,2,40,13,'+27',26],[3,'NK Concordia',12,7,4,1,45,18,'+27',25],[4,'NK Kustošija',12,8,1,3,39,20,'+19',25],[5,'NK Trnovčica',12,8,1,3,45,27,'+18',25],[6,'NK Bubamara',12,6,1,5,21,25,'-4',19],[7,'NK Ravnice',12,5,2,5,43,34,'+9',17],[8,'NK Prigorje (Z)',12,5,2,5,27,29,'-2',17],[9,'NK Zelengaj 1948',12,5,1,6,36,29,'+7',16],[10,'NK HAŠK 1903',12,4,2,6,26,32,'-6',14],[11,'NK Prigorje (M)',12,3,0,9,21,47,'-26',9],[12,'NK Polet (SK)',12,1,0,11,13,72,'-59',3],[13,'NK Savica CC',12,0,1,11,15,50,'-35',1]],players:[{n:'Josip Mihulja',pos:'GK',num:21},{n:'Bruno Kučić',num:1},{n:'Marin Gavran',num:2},{n:'Leon Bliznac',num:3},{n:'Patrik Kemenec',num:4},{n:'Ivano Matuš',num:5},{n:'Šimun Petar Tomljenović',num:6},{n:'Ivano Marić',num:9},{n:'Ivan Teveli',num:10},{n:'Karlo Prša',num:11},{n:'Lovro Bikić',num:16},{n:'Roko Divić',num:22},{n:'Ante Zovko',num:30},{n:'Jakov Šimić',num:54},{n:'Fran Pavlić',num:66},{n:'Matej Franjić',num:77},{n:'Eldin Muratović',num:79},{n:'David Josipović',num:80},{n:'Luka Jokić',num:81},{n:'Gabrijel Jurajec Baranović',num:99}]},
+  'limaci-b2':{name:'Limači B2',league:'2. ZNL Limači grupa A 25/26',poletName:'NK Polet (SK)',table:[[1,'NK Concordia',12,11,0,1,47,9,'+38',33],[2,'NK Prigorje (M)',12,10,0,2,48,9,'+39',30],[3,'NK HAŠK 1903',12,8,2,2,32,15,'+17',26],[4,'NK Jarun',12,8,1,3,40,14,'+26',25],[5,'NK Hrvatski dragovoljac (Z)',12,7,2,3,44,18,'+26',23],[6,'NK Prigorje (Z)',12,6,3,3,24,20,'+4',21],[7,'NK Ravnice',12,6,2,4,29,34,'-5',20],[8,'NK Blato',12,3,3,6,12,22,'-10',12],[9,'NK Polet (SK)',12,4,0,8,24,36,'-12',12],[10,'NK Bubamara',12,3,2,7,20,26,'-6',11],[11,'NK Savica CC',12,2,0,10,20,50,'-30',6],[12,'NK Trnovčica',12,1,1,10,10,67,'-57',4],[13,'NK Zelengaj 1948',12,0,2,10,16,46,'-30',2]],players:[{n:'Lovro Bikić',pos:'GK',num:16},{n:'Matej Franjić',pos:'GK',num:77},{n:'Leon Bliznac',num:3},{n:'Roko Divić',num:22},{n:'Gabrijel Jurajec Baranović',num:99},{n:'Bruno Kučić',num:1},{n:'Ivano Marić',num:9},{n:'Lucijan Marjanović',num:6},{n:'Eldin Muratović',num:79},{n:'Fran Pavlić',num:66},{n:'Luka Pejaković',num:79},{n:'Vito Pejaković',num:65},{n:'Ivan Teveli',num:10},{n:'Jakov Vincek',num:94},{n:'Vito Vukoja',num:10}]},
+  'zagici-b1':{name:'Zagići B1',league:'2. ZNL Zagići grupa A 25/26',poletName:'NK Polet (SK)',table:[[1,'NK Ravnice',13,12,0,1,71,25,'+46',36],[2,'NK Concordia',13,11,0,2,63,19,'+44',33],[3,'NK Trnovčica',13,9,2,2,59,30,'+29',29],[4,'NK Kustošija',13,8,3,2,53,32,'+21',27],[5,'NK Hrvatski dragovoljac (Z)',13,6,4,3,41,24,'+17',22],[6,'NK HAŠK 1903',13,6,2,5,65,32,'+33',20],[7,'NK Prigorje (M)',13,5,5,3,31,26,'+5',20],[8,'NK Zelengaj 1948',13,5,4,4,28,35,'-7',19],[9,'NK Jarun',13,5,0,8,30,40,'-10',15],[10,'NK Savica CC',13,3,3,7,34,56,'-22',12],[11,'NK Blato',13,3,2,8,25,46,'-21',11],[12,'NK Polet (SK)',13,2,1,10,17,75,'-58',7],[13,'NK Prigorje (Z)',13,1,1,11,21,55,'-34',4],[14,'NK Bubamara',13,1,1,11,22,65,'-43',4]],players:[{n:'Mateo Brnjić',pos:'GK',num:44},{n:'Andrija Ležaja',pos:'GK',num:34},{n:'Jakov Svalina',pos:'GK',num:98},{n:'Juro Bijelić',num:69},{n:'Jan Leon Brekalo',num:42},{n:'Andrija Lučić',num:47},{n:'Petar Mahin',num:41},{n:'Borna Oreški',num:92},{n:'Vito Pejaković',num:65},{n:'Marko Penić',num:45},{n:'Petar Šalić',num:7},{n:'Jakov Vincek',num:94}]},
+  'zagici-b2':{name:'Zagići B2',league:'2. ZNL Zagići grupa A 25/26',poletName:'NK Polet (SK)',table:[[1,'NK HAŠK 1903',10,8,2,0,49,12,'+37',26],[2,'NK Prigorje (M)',10,8,1,1,40,12,'+28',25],[3,'NK Concordia',10,8,0,2,54,15,'+39',24],[4,'NK Zelengaj 1948',10,6,0,4,38,24,'+14',18],[5,'NK Savica CC',10,5,2,3,32,26,'+6',17],[6,'NK Prigorje (Z)',10,4,2,4,28,26,'+2',14],[7,'NK Hrvatski dragovoljac (Z)',10,4,0,6,28,34,'-6',12],[8,'NK Blato',10,4,0,6,28,36,'-8',12],[9,'NK Polet (SK)',10,1,2,7,23,49,'-26',5],[10,'NK Trnovčica',10,1,1,8,17,60,'-43',4],[11,'NK Ravnice',10,1,0,9,11,54,'-43',3]],players:[{n:'Bruno Južbašić',pos:'GK',num:9},{n:'Lennox Mijoč',pos:'GK',num:1},{n:'Oliver Muženjak',pos:'GK',num:5},{n:'Lovro Alvir',num:6},{n:'Luka Bliznac',num:8},{n:'Noa Čapan',num:2},{n:'Tin Crnički',num:11},{n:'Rayan Cufta',num:17},{n:'Pablo Fredotović',num:9},{n:'Karlo Kovač',num:13},{n:'Karlo Lukić',num:4},{n:'Matej Marić',num:18},{n:'Fran Dragan Skender',num:3},{n:'Petar Šalić',num:7},{n:'Ante Teveli',num:10},{n:'Vito Vukoja',num:10}]}
+};
+function ptRenderCategory(key){
+  const cat=ptCategories[key];if(!cat)return;
+  const c=document.getElementById('ptCatContent');
+  let h=`<div class="pt-cat-content" id="ptActiveContent"><div class="pt-league-header"><div class="pt-league-title">${cat.league}</div><div class="pt-league-badge">Sezona 2025./2026.</div></div><div class="pt-table-wrap"><table class="pt-league-table"><thead><tr><th>#</th><th>Klub</th><th>UT</th><th>P</th><th>N</th><th>I</th><th>G+</th><th>G-</th><th>GR</th><th>Bod</th></tr></thead><tbody>`;
+  cat.table.forEach(r=>{const isP=r[1]===cat.poletName;const pc=r[0]<=3?' pt-pos-'+r[0]:'';h+=`<tr class="${isP?'pt-highlight':''}"><td><span class="pt-pos-badge${pc}">${r[0]}</span></td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${r[5]}</td><td>${r[6]}</td><td>${r[7]}</td><td>${r[8]}</td><td>${r[9]}</td></tr>`});
+  h+=`</tbody></table></div><div class="pt-roster-header">Popis igrača <span class="count">(${cat.players.length} igrača)</span></div><div class="pt-roster-grid">`;
+  cat.players.forEach(p=>{const gk=p.pos==='GK';const nd=p.num!==null?p.num:'—';h+=`<div class="pt-player-card${gk?' gk':''}"><div class="pt-player-num${p.num===null?' no-num':''}">${nd}</div><div><div class="pt-player-name">${p.n}</div>${gk?'<div class="pt-player-pos">Vratar</div>':''}</div></div>`});
+  h+=`</div></div>`;
+  c.innerHTML=h;
+  requestAnimationFrame(()=>{const el=document.getElementById('ptActiveContent');if(el)requestAnimationFrame(()=>el.classList.add('visible'))});
+}
+document.querySelectorAll('#ptCatTabs .pt-cat-tab').forEach(t=>{t.addEventListener('click',function(){document.querySelectorAll('#ptCatTabs .pt-cat-tab').forEach(x=>x.classList.remove('active'));this.classList.add('active');const k=this.dataset.cat;document.getElementById('ptCatDropdown').value=k;ptRenderCategory(k)})});
+document.getElementById('ptCatDropdown').addEventListener('change',function(){const k=this.value;document.querySelectorAll('#ptCatTabs .pt-cat-tab').forEach(t=>t.classList.toggle('active',t.dataset.cat===k));ptRenderCategory(k)});
+ptRenderCategory('juniori');
+window.addEventListener('load',()=>{setTimeout(()=>{const p=document.getElementById('preloader');p.classList.add('hide');setTimeout(()=>p.remove(),700)},1000)});
+</script>
+<%- include('../partials/nav-js') %>
+</body>
+</html>
